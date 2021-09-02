@@ -13,9 +13,9 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
+          <Route path="/" exact component={LoginPage} />
           <Route path="/beranda" component={Beranda} />
           <Route path="/create-payment" component={CreatePayment} />
-          <Route path="/login" exact component={LoginPage} />
         </Switch>
       </Router>
     </>

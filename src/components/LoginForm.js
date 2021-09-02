@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 
 const LoginForm = () => {
   const history = useHistory();
-  const navigateTo = () => history.push("/src/pages/Beranda.js");
-  
+  const navigateTo = () => history.push("/beranda");
+
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
