@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Table, Tag, Space, Button, Row } from "antd";
-import "./ListPaymentRequest";
+import "./ListPaymentRequest.css";
 import { useHistory } from "react-router-dom";
 
 const ListPaymentRequest = () => {
@@ -101,7 +101,7 @@ const ListPaymentRequest = () => {
         alignItems: "center",
       }}
     >
-      <h6>List Payment Request - KC Bank XXX</h6>
+      <h1>List Payment Request - KC Bank XXX</h1>
       <Table
         rowClassName={(record, index) =>
           index % 2 === 0 ? "table-row-light" : "table-row-dark"

@@ -12,16 +12,28 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
         <Switch>
-          <Route path="/" exact component={LoginPage} />
-          <Route path="/beranda" component={Beranda} />
-          <Route path="/create-payment" component={CreatePayment} />
-          <Route path="/detail-payment" component={DetailPaymentRequest} />
+          <Route exact path="/" component={LoginContainer} />
+          <Route component={DefaultContainer} />
         </Switch>
       </Router>
     </>
   );
 }
+
+const LoginContainer = () => (
+  <Route path="/" component={LoginPage} />
+)
+
+
+const DefaultContainer = () => (
+  <>
+    <Navbar />
+    <Route path="/" exact component={LoginPage} />
+    <Route path="/beranda" component={Beranda} />
+    <Route path="/create-payment" component={CreatePayment} />
+    <Route path="/detail-payment" component={DetailPaymentRequest} />
+  </>
+)
 
 export default App;
