@@ -8,10 +8,14 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.beranda, .createpayment {
+.beranda {
   display: flex;
   height: 90vh;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+}
+.createpayment{
+  flex-wrap: wrap;
+  margin-top: 50px;
 }
