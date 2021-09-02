@@ -1,9 +1,10 @@
 import React from "react";
+import CreatePaymentForm from "../components/CreatePaymentForm";
 
 const CreatePayment = () => {
   return (
     <div className="createpayment">
-      <p>Create Payment</p>
+      <CreatePaymentForm />
     </div>
   );
 };

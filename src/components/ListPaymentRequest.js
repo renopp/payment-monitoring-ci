@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Table, Tag, Space, Button, Row } from "antd";
 import "./ListPaymentRequest";
+import { useHistory } from "react-router-dom";
 
 const ListPaymentRequest = () => {
+  const history = useHistory();
+  const navigateTo = () => history.push("/detail-payment");
   // table
   const columns = [
     {
@@ -49,7 +52,9 @@ const ListPaymentRequest = () => {
       key: "buttonDetail",
       render: (text) => (
         <Space size="middle">
-          <Button type="primary">Detail</Button>
+          <Button type="primary" onClick={navigateTo}>
+            Detail
+          </Button>
         </Space>
       ),
     },
