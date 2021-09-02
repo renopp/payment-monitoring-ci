@@ -37,8 +37,8 @@ const CreatePaymentForm = () => {
   };
 
   return (
-    <Row justify="center" style={{ marginTop: '30px' }}>
-      <Col span={16}>
+      <Row justify="center" >
+      <Col span={14}>
         <Form name="basic" initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed}>
           <Form.Item
             labelAlign="left"
@@ -104,8 +104,9 @@ const CreatePaymentForm = () => {
             rules={[{ required: true, message: 'Jumlah Payment tidak boleh kosong!' }]}
           >
             <Input
-              addonBefore="Rp. "
-              value={formState.Model.jumlah_payment}
+                style={{marginLeft: '-0px'}}
+                addonBefore="Rp. "
+                value={formState.Model.jumlah_payment}
               onChange={(e) => {
                 setFormState({ ...formState, Model: { ...formState.Model, jumlah_payment: e.target.value } });
               }}
