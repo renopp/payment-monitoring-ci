@@ -7,6 +7,7 @@ import Beranda from "./pages/Beranda";
 import CreatePayment from "./pages/Create_Payment";
 import LoginPage from "./pages/LoginPage";
 import DetailPaymentRequest from "./pages/DetailPaymentRequest";
+import FormPaymentRequest from "./pages/FormPaymentRequest";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ const DefaultContainer = () => (
     <Route path="/beranda" component={Beranda} />
     <Route path="/create-payment" component={CreatePayment} />
     <Route path="/detail-payment" component={DetailPaymentRequest} />
+    <Route path="/form-payment-request" component={FormPaymentRequest} />
   </>
 )
 
