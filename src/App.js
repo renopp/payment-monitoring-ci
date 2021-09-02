@@ -5,6 +5,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Beranda from "./pages/Beranda";
 import CreatePayment from "./pages/Create_Payment";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -12,9 +13,9 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/beranda" exact component={Beranda} />
+          <Route path="/beranda" component={Beranda} />
           <Route path="/create-payment" component={CreatePayment} />
-          <Route path="/login" />
+          <Route path="/login" exact component={LoginPage} />
         </Switch>
       </Router>
     </>
