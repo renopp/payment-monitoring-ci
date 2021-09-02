@@ -28,6 +28,7 @@ const LoginForm = () => {
     <Row justify="center">
       <Form
         name="basic"
+        labelAlign="left"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         initialValues={{ remember: true }}
@@ -53,7 +54,7 @@ const LoginForm = () => {
           label="Password"
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
-          style={{ marginTop: "15px", marginRight: "17px" }}
+          style={{ marginTop: "15px"}}
         >
           <Input.Password value={password} onChange={handlePasswordChange} />
         </Form.Item>
