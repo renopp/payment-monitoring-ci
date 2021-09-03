@@ -8,7 +8,6 @@ import CreatePayment from "./pages/Create_Payment";
 import LoginPage from "./pages/LoginPage";
 import DetailPaymentRequest from "./pages/DetailPaymentRequest";
 import FormPaymentRequest from "./pages/FormPaymentRequest";
-import Create_Payment from "./pages/Create_Payment";
 
 function App() {
   return (
@@ -32,8 +31,7 @@ const DefaultContainer = () => (
     <Route path="/unitkerja-beranda" component={Beranda} />
     <Route path="/unitkerja-paymentrequest" component={FormPaymentRequest} />
     <Route path="/unitkerja-detailpayment" component={DetailPaymentRequest} />
-    <Route path="/gs-paymentrequest" component={Create_Payment} />
-    <Route path="/form-payment-request" component={CreatePayment} />
+    <Route path="/gs-paymentrequest" component={CreatePayment} />
   </>
 );
 
