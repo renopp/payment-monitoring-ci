@@ -17,6 +17,12 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
+    title: "Daftar Payment Request",
+    path: "/gs-request",
+    icon: <IoIcons.IoMdCreate />,
+    cName: "nav-text",
+  },
+  {
     title: "Sign Out",
     path: "/",
     icon: <FaIcons.FaSignOutAlt />,

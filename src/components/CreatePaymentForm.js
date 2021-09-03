@@ -1,25 +1,28 @@
 import React, { useState } from "react";
-import "./CreatePaymentForm";
+import "./CreatePaymentForm.css";
 
-import { Form, Input, Button, Col, Row, DatePicker, Select } from "antd";
+import {Form, Button, Col, Row, Select, Typography} from "antd";
+
 import TextArea from "antd/lib/input/TextArea";
 import { useHistory } from "react-router-dom";
+const { Text } = Typography;
 
 const { Option } = Select;
 const CreatePaymentForm = () => {
   const history = useHistory();
   const navigateTo = () => history.push("/unitkerja-beranda");
   const Model = {
-    nm_unit: "",
-    diminta_oleh: "",
-    keperluan: "",
-    tanggal_pembayaran_aktual: "",
-    jumlah_payment: "",
-    terbilang: "",
-    nama_rek_penerima: "",
-    no_rek_penerima: "",
-    request_terkirim: "",
+    nm_unit: "KC BANK XXX",
+    diminta_oleh: "Asep Sunandar",
+    keperluan: "SPP Juli 2020",
+    tanggal_pembayaran_aktual: "Sabtu, 10 Juli 2021",
+    jumlah_payment: "Rp. 1.000.000",
+    terbilang: "Satu Juta Rupiah",
+    nama_rek_penerima: "MD. Mubarokul Huda",
+    no_rek_penerima: "15000757050",
+    request_terkirim: "Jum'at, 9 Juli 2021 (09.00 PM)",
     status: "",
+    alasan: "",
   };
 
   const [formState, setFormState] = useState({
@@ -36,230 +39,173 @@ const CreatePaymentForm = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-
+  const [hidden, setHidden] = useState(true);
+ const handleOnChange = (value, event) => {
+   console.log(value);
+   if (value == '1'){
+     setHidden(false);
+   }else {
+     setHidden(true);
+   }
+  }
   return (
     <Row justify="center">
-      <Col span={14}>
+      <Col span={12}>
         <Form
           name="basic"
           initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Nama Unit"
-            name="nm_unit"
-            rules={[
-              { required: true, message: "Nama unit tidak boleh kosong!" },
-            ]}
-          >
-            <Input
-              placeholder="Nama Unit"
-              value={formState.Model.nm_unit}
-              onChange={(e) => {
-                setFormState({
-                  ...formState,
-                  Model: { ...formState.Model, nm_unit: e.target.value },
-                });
-              }}
-            />
-          </Form.Item>
+          <Row justify="left" className="row">
+            <Col span={10}>
+              <Text>Nama Unit</Text>
+            </Col>
+            <Col span={2}>
+              <Text>:</Text>
+            </Col>
+            <Col span={12}>
+              <Text>{formState.Model.nm_unit}</Text>
+            </Col>
+          </Row>
 
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Diminta Oleh"
-            name="diminta_oleh"
-            rules={[
-              { required: true, message: "Diminta Oleh tidak boleh kosong!" },
-            ]}
-          >
-            <Input
-              value={formState.Model.diminta_oleh}
-              onChange={(e) => {
-                setFormState({
-                  ...formState,
-                  Model: { ...formState.Model, diminta_oleh: e.target.value },
-                });
-              }}
-            />
-          </Form.Item>
+          <Row justify="left" className="row" >
+            <Col span={10}>
+              <Text>Diminta Oleh</Text>
+            </Col>
+            <Col span={2}>
+              <Text>:</Text>
+            </Col>
+            <Col span={12}>
+              <Text>{formState.Model.diminta_oleh}</Text>
+            </Col>
+          </Row>
 
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Keperluan"
-            name="keperluan"
-            rules={[
-              { required: true, message: "Keperluan tidak boleh kosong!" },
-            ]}
-          >
-            <Input
-              value={formState.Model.keperluan}
-              onChange={(e) => {
-                setFormState({
-                  ...formState,
-                  Model: { ...formState.Model, keperluan: e.target.value },
-                });
-              }}
-            />
-          </Form.Item>
+          <Row justify="left" className="row" >
+            <Col span={10}>
+              <Text>Keperluan</Text>
+            </Col>
+            <Col span={2}>
+              <Text>:</Text>
+            </Col>
+            <Col span={12}>
+              <Text>{formState.Model.keperluan}</Text>
+            </Col>
+          </Row>
 
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Tanggal Pembayaran"
-            name="tanggal_pembayaran_aktual"
-            rules={[
-              {
-                required: true,
-                message: "Tanggal Pembayaran tidak boleh kosong!",
-              },
-            ]}
-          >
-            <DatePicker
-              onChange={onChangeDate}
-              style={{ width: 300 }}
-              placeholder="Pilih Tanggal Pembayaran"
-            />
-          </Form.Item>
+          <Row justify="left" className="row" >
+            <Col span={10}>
+              <Text>Tanggal Pembayaran</Text>
+            </Col>
+            <Col span={2}>
+              <Text>:</Text>
+            </Col>
+            <Col span={12}>
+              <Text>{formState.Model.tanggal_pembayaran_aktual}</Text>
+            </Col>
+          </Row>
 
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Jumlah Payment"
-            name="jumlah_payment"
-            rules={[
-              { required: true, message: "Jumlah Payment tidak boleh kosong!" },
-            ]}
-          >
-            <Input
-              style={{ marginLeft: "-0px" }}
-              addonBefore="Rp. "
-              value={formState.Model.jumlah_payment}
-              onChange={(e) => {
-                setFormState({
-                  ...formState,
-                  Model: { ...formState.Model, jumlah_payment: e.target.value },
-                });
-              }}
-            />
-          </Form.Item>
+          <Row justify="left" className="row" >
+            <Col span={10}>
+              <Text>Jumlah Payment</Text>
+            </Col>
+            <Col span={2}>
+              <Text>:</Text>
+            </Col>
+            <Col span={12}>
+              <Text>{formState.Model.jumlah_payment}</Text>
+            </Col>
+          </Row>
 
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Terbilang"
-            name="terbilang"
-            rules={[
-              { required: true, message: "Terbilang tidak boleh kosong!" },
-            ]}
-          >
-            <TextArea
-              value={formState.Model.terbilang}
-              onChange={(e) => {
-                setFormState({
-                  ...formState,
-                  Model: { ...formState.Model, terbilang: e.target.value },
-                });
-              }}
-              placeholder="Terbilang"
-              autoSize={{ minRows: 2, maxRows: 3 }}
-            />
-          </Form.Item>
+          <Row justify="left" className="row" >
+            <Col span={10}>
+              <Text>Terbilang</Text>
+            </Col>
+            <Col span={2}>
+              <Text>:</Text>
+            </Col>
+            <Col span={12}>
+              <Text>{formState.Model.terbilang}</Text>
+            </Col>
+          </Row>
 
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Nama Rek. Penerima"
-            name="nama_rek_penerima"
-            rules={[
-              {
-                required: true,
-                message: "Nama Rek. Penerima tidak boleh kosong!",
-              },
-            ]}
-          >
-            <Input
-              value={formState.Model.nama_rek_penerima}
-              onChange={(e) => {
-                setFormState({
-                  ...formState,
-                  Model: {
-                    ...formState.Model,
-                    nama_rek_penerima: e.target.value,
-                  },
-                });
-              }}
-            />
-          </Form.Item>
+          <Row justify="left" className="row" >
+            <Col span={10}>
+              <Text>Nama Rek. Penerima</Text>
+            </Col>
+            <Col span={2}>
+              <Text>:</Text>
+            </Col>
+            <Col span={12}>
+              <Text>{formState.Model.nama_rek_penerima}</Text>
+            </Col>
+          </Row>
 
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="No Rekening Penerima"
-            name="no_rek_penerima"
-            rules={[
-              {
-                required: true,
-                message: "No Rekening Penerima tidak boleh kosong!",
-              },
-            ]}
-          >
-            <Input
-              value={formState.Model.no_rek_penerima}
-              onChange={(e) => {
-                setFormState({
-                  ...formState,
-                  Model: {
-                    ...formState.Model,
-                    no_rek_penerima: e.target.value,
-                  },
-                });
-              }}
-            />
-          </Form.Item>
+          <Row justify="left" className="row" >
+            <Col span={10}>
+              <Text>No Rekening Penerima</Text>
+            </Col>
+            <Col span={2}>
+              <Text>:</Text>
+            </Col>
+            <Col span={12}>
+              <Text>{formState.Model.no_rek_penerima}</Text>
+            </Col>
+          </Row>
 
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Request Terkirim"
-            name="request_terkirim"
-            rules={[
-              {
-                required: true,
-                message: "Request Terkirim tidak boleh kosong!",
-              },
-            ]}
-          >
-            <Input
-              value={formState.Model.request_terkirim}
-              onChange={(e) => {
-                setFormState({
-                  ...formState,
-                  Model: {
-                    ...formState.Model,
-                    request_terkirim: e.target.value,
-                  },
-                });
-              }}
-            />
-          </Form.Item>
+          <Row justify="left" className="row" >
+            <Col span={10}>
+              <Text>Request Terkirim</Text>
+            </Col>
+            <Col span={2}>
+              <Text>:</Text>
+            </Col>
+            <Col span={12}>
+              <Text>{formState.Model.request_terkirim}</Text>
+            </Col>
+          </Row>
 
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Status"
-            name="status"
-            rules={[{ required: true, message: "Status tidak boleh kosong!" }]}
-          >
-            <Select defaultValue="">
-              <Option value="0">Teruskan Ke Accounting</Option>
-              <Option value="1">Reject</Option>
-            </Select>
-          </Form.Item>
+          <Row justify="left" className="row" >
+            <Col span={10}>
+              <Text>Status</Text>
+            </Col>
+            <Col span={2}>
+              <Text>:</Text>
+            </Col>
+            <Col span={12}>
+              <Form.Item>
+                <Select defaultValue="" onSelect={(value, event) => handleOnChange(value, event)}>
+                  <Option value="0">Teruskan Ke Accounting</Option>
+                  <Option value="1">Reject</Option>
+                </Select>
+              </Form.Item>
+            </Col>
+          </Row>
+
+          <Row justify="left" className={hidden ? 'hidden' : ''} >
+            <Col span={10}>
+              <Text>Alasan</Text>
+            </Col>
+            <Col span={2}>
+              <Text>:</Text>
+            </Col>
+            <Col span={12}>
+              <Form.Item>
+                <TextArea
+                    value={formState.Model.alasan}
+                    onChange={(e) => {
+                      setFormState({
+                        ...formState,
+                        Model: { ...formState.Model, alasan: e.target.value },
+                      });
+                    }}
+                    placeholder="Alasan"
+                    autoSize={{ minRows: 2, maxRows: 3 }}
+                />
+              </Form.Item>
+            </Col>
+          </Row>
+
           <Row>
             <Col span={4}>
               <Form.Item>
