@@ -29,9 +29,9 @@ const DefaultContainer = () => (
     <Navbar />
     <Route path="/" exact component={LoginPage} />
     <Route path="/unitkerja-beranda" component={Beranda} />
-    <Route path="/unitkerja-paymentrequest" component={CreatePayment} />
+    <Route path="/unitkerja-paymentrequest" component={FormPaymentRequest} />
     <Route path="/unitkerja-detailpayment" component={DetailPaymentRequest} />
-    {/* <Route path="/form-payment-request" component={FormPaymentRequest} /> */}
+    <Route path="/form-payment-request" component={CreatePayment} />
   </>
 );
 
