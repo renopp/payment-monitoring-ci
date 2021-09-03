@@ -32,7 +32,7 @@ const DefaultContainer = () => (
     <Route path="/unitkerja-beranda" component={Beranda} />
     <Route path="/unitkerja-paymentrequest" component={FormPaymentRequest} />
     <Route path="/unitkerja-detailpayment" component={DetailPaymentRequest} />
-    <Route path="/gs-request" component={Create_Payment} />
+    <Route path="/gs-paymentrequest" component={Create_Payment} />
     <Route path="/form-payment-request" component={CreatePayment} />
   </>
 );

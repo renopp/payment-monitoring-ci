@@ -1,6 +1,10 @@
 @import "~antd/dist/antd.css";
 
-.row{
+.row {
     margin-top: 24px;
 }
 .hidden { display:none; }
+
+.row > div > span {
+    margin-left: 0;
+}

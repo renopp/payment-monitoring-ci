@@ -182,7 +182,7 @@ const CreatePaymentForm = () => {
             </Col>
           </Row>
 
-          <Row justify="left" className={hidden ? 'hidden' : ''} >
+          <Row justify="left" className={hidden ? 'hidden' : 'row'} style={{marginTop: '0'}}>
             <Col span={10}>
               <Text>Alasan</Text>
             </Col>
@@ -207,16 +207,16 @@ const CreatePaymentForm = () => {
           </Row>
 
           <Row>
-            <Col span={4}>
+            <Col span={3}>
               <Form.Item>
-                <Button danger htmlType="submit" onClick={() => {}}>
+                <Button danger htmlType="submit" onClick={navigateTo}>
                   Kembali
                 </Button>
               </Form.Item>
             </Col>
-            <Col span={4} offset={16}>
+            <Col  span={3} offset={18}>
               <Form.Item>
-                <Button type="primary" htmlType="submit" onClick={navigateTo}>
+                <Button htmlType="submit" onClick={navigateTo}>
                   Update
                 </Button>
               </Form.Item>
