@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 const LoginForm = () => {
   const history = useHistory();
-  const navigateTo = () => history.push("/beranda");
+  const navigateTo = () => history.push("/unitkerja-beranda");
 
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -54,7 +54,7 @@ const LoginForm = () => {
           label="Password"
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
-          style={{ marginTop: "15px"}}
+          style={{ marginTop: "15px" }}
         >
           <Input.Password value={password} onChange={handlePasswordChange} />
         </Form.Item>

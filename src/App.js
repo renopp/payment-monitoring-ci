@@ -22,20 +22,17 @@ function App() {
   );
 }
 
-const LoginContainer = () => (
-  <Route path="/" component={LoginPage} />
-)
-
+const LoginContainer = () => <Route path="/" component={LoginPage} />;
 
 const DefaultContainer = () => (
   <>
     <Navbar />
     <Route path="/" exact component={LoginPage} />
-    <Route path="/beranda" component={Beranda} />
-    <Route path="/create-payment" component={CreatePayment} />
-    <Route path="/detail-payment" component={DetailPaymentRequest} />
-    <Route path="/form-payment-request" component={FormPaymentRequest} />
+    <Route path="/unitkerja-beranda" component={Beranda} />
+    <Route path="/unitkerja-paymentrequest" component={CreatePayment} />
+    <Route path="/unitkerja-detailpayment" component={DetailPaymentRequest} />
+    {/* <Route path="/form-payment-request" component={FormPaymentRequest} /> */}
   </>
-)
+);
 
 export default App;

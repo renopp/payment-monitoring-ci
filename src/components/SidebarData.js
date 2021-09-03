@@ -6,13 +6,13 @@ import * as IoIcons from "react-icons/io";
 export const SidebarData = [
   {
     title: "Beranda",
-    path: "/beranda",
+    path: "/unitkerja-beranda",
     icon: <AiIcons.AiFillHome />,
     cName: "nav-text",
   },
   {
     title: "Buat Payment Request",
-    path: "/create-payment",
+    path: "/unitkerja-paymentrequest",
     icon: <IoIcons.IoMdCreate />,
     cName: "nav-text",
   },

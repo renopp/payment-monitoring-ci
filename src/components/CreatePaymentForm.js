@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 const { Option } = Select;
 const CreatePaymentForm = () => {
   const history = useHistory();
-  const navigateTo = () => history.push("/beranda");
+  const navigateTo = () => history.push("/unitkerja-beranda");
   const Model = {
     nm_unit: "",
     diminta_oleh: "",

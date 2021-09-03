@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 const ListPaymentRequest = () => {
   const history = useHistory();
-  const navigateTo = () => history.push("/detail-payment");
+  const navigateTo = () => history.push("/unitkerja-detailpayment");
   // table
   const columns = [
     {
