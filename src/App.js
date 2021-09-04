@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import "antd/dist/antd.css";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Beranda from "./pages/Beranda";
