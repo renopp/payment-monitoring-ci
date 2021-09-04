@@ -1,6 +1,8 @@
 import React from "react";
-import { Form, Input, Button, Col, Row } from "antd";
+import { Form, Input, Button, Col, Row, Typography } from "antd";
 import { useHistory } from "react-router-dom";
+
+const Text = Typography;
 
 const LoginForm = () => {
   const history = useHistory();
@@ -47,19 +49,35 @@ const LoginForm = () => {
             },
           ]}
         >
-          <Input value={username} onChange={handleUsernameChange} />
+          <Col span={2}>
+            <Text> : </Text>
+          </Col>
+          <Col span={20}>
+            <Input value={username} onChange={handleUsernameChange} />
+          </Col>
         </Form.Item>
 
         <Form.Item
           label="Password"
           name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+              type: "password",
+            },
+          ]}
           style={{ marginTop: "15px" }}
         >
-          <Input.Password value={password} onChange={handlePasswordChange} />
+          <Col span={2}>
+            <Text> : </Text>
+          </Col>
+          <Col span={20}>
+            <Input.Password value={password} onChange={handlePasswordChange} />
+          </Col>
         </Form.Item>
 
-        <Col span={12} offset={6}>
+        <Col span={12} offset={5}>
           <Row justify="center">
             <Form.Item>
               <Button
