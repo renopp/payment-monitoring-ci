@@ -35,6 +35,6 @@ input {
   width: 455px !important;
 }
 
-textarea .ant-input {
-  max-width: 0 !important;
+textarea {
+  max-width: none !important;
 }
