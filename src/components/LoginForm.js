@@ -49,12 +49,14 @@ const LoginForm = () => {
             },
           ]}
         >
+          <Row>
           <Col span={2}>
             <Text> : </Text>
           </Col>
-          <Col span={20}>
+          <Col span={22}>
             <Input value={username} onChange={handleUsernameChange} />
           </Col>
+          </Row>
         </Form.Item>
 
         <Form.Item
@@ -69,12 +71,14 @@ const LoginForm = () => {
           ]}
           style={{ marginTop: "15px" }}
         >
+          <Row>
           <Col span={2}>
             <Text> : </Text>
           </Col>
-          <Col span={20}>
+          <Col span={22}>
             <Input.Password value={password} onChange={handlePasswordChange} />
           </Col>
+          </Row>
         </Form.Item>
 
         <Col span={12} offset={5}>
