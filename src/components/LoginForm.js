@@ -87,9 +87,6 @@ const LoginForm = () => {
               <Button
                 type="primary"
                 htmlType="submit"
-                // onClick={() => {
-                //   console.log("test value >> ", username, password);
-                // }}
                 onClick={navigateTo}
                 style={{
                   backgroundColor: "#09539C ",
