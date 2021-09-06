@@ -1,0 +1,27 @@
+.BRI-logo {
+  height: 20vmin;
+  /* width: 450p; */
+  margin-left: 150px;
+}
+
+.container {
+  padding: 20px 0;
+  background-color: white;
+  height: 450px;
+  width: 450px;
+  border-radius: 20px;
+}
+
+.App-header {
+  background-color: #09539c !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.ant-input-affix-wrapper {
+  margin-left: 0;
+}
