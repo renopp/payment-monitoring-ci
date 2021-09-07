@@ -5,8 +5,6 @@ import "antd/dist/antd.css";
 import { Layout } from "antd";
 import LoginForm from "../components/LoginForm";
 
-// const {} = Layout;
-
 const LoginPage = () => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
