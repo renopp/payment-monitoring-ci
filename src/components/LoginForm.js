@@ -1,23 +1,24 @@
 import React from "react";
 import { Form, Input, Button, Col, Row, Typography } from "antd";
 import { useHistory } from "react-router-dom";
+import "./LoginForm.css";
 
 const Text = Typography;
 
 const LoginForm = () => {
   const history = useHistory();
-  const navigateTo = () => history.push("/unitkerja-beranda");
+  const navigateTo = React.useCallback(() => history.push("/unitkerja-beranda"), [history]);
 
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  const onFinish = (values) => {
+  const onFinish = React.useCallback((values) => {
     console.log("Success:", values);
-  };
+  }, []);
 
-  const onFinishFailed = (errorInfo) => {
+  const onFinishFailed = React.useCallback((errorInfo) => {
     console.log("Failed:", errorInfo);
-  };
+  }, []);
 
   const handleUsernameChange = React.useCallback((e) => {
     setUsername(e.target.value);
@@ -50,12 +51,12 @@ const LoginForm = () => {
           ]}
         >
           <Row>
-          <Col span={2}>
-            <Text> : </Text>
-          </Col>
-          <Col span={22}>
-            <Input value={username} onChange={handleUsernameChange} />
-          </Col>
+            <Col span={2}>
+              <Text> : </Text>
+            </Col>
+            <Col span={22}>
+              <Input value={username} onChange={handleUsernameChange} />
+            </Col>
           </Row>
         </Form.Item>
 
@@ -72,12 +73,12 @@ const LoginForm = () => {
           style={{ marginTop: "15px" }}
         >
           <Row>
-          <Col span={2}>
-            <Text> : </Text>
-          </Col>
-          <Col span={22}>
-            <Input.Password value={password} onChange={handlePasswordChange} />
-          </Col>
+            <Col span={2}>
+              <Text> : </Text>
+            </Col>
+            <Col span={22}>
+              <Input.Password id="input_password" value={password} onChange={handlePasswordChange} />
+            </Col>
           </Row>
         </Form.Item>
 
@@ -87,9 +88,6 @@ const LoginForm = () => {
               <Button
                 type="primary"
                 htmlType="submit"
-                // onClick={() => {
-                //   console.log("test value >> ", username, password);
-                // }}
                 onClick={navigateTo}
                 style={{
                   backgroundColor: "#09539C ",

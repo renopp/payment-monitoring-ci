@@ -1,0 +1,16 @@
+.ant-input-affix-wrapper {
+  margin-left: 0;
+}
+
+.ant-col .ant-col-22 .ant-input {
+  width: 100% !important;
+}
+
+.ant-btn {
+  width: 250px !important;
+  margin-left: 30px;
+}
+
+.ant-form-item-label {
+  margin-right: 20px;
+}

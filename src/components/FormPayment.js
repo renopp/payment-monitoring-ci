@@ -4,40 +4,43 @@ import "./CreatePaymentForm";
 import { Form, Input, Button, Col, Row, DatePicker, Select, Typography } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { useHistory } from "react-router-dom";
+import "./FormPayment.css";
 
 const Text = Typography;
 
 const { Option } = Select;
+const Model = {
+  diminta_oleh: "",
+  keperluan: "",
+  tanggal_pembayaran_aktual: "",
+  jumlah_payment: "",
+  terbilang: "",
+  nama_rek_penerima: "",
+  no_rek_penerima: "",
+  request_terkirim: "",
+  status: "",
+};
+
 const FormPayment = () => {
   const history = useHistory();
   const navigateTo = () => history.push("/unitkerja-beranda");
-  const Model = {
-    nm_unit: "",
-    diminta_oleh: "",
-    keperluan: "",
-    tanggal_pembayaran_aktual: "",
-    jumlah_payment: "",
-    terbilang: "",
-    nama_rek_penerima: "",
-    no_rek_penerima: "",
-    request_terkirim: "",
-    status: "",
-  };
 
   const [formState, setFormState] = useState({
     Model,
   });
 
-  const onFinish = (values) => {
+  const onFinish = React.useCallback((values) => {
     console.log("Success:", values);
-  };
+  }, []);
 
-  function onChangeDate(date, dateString) {
+  const onChangeDate = React.useCallback((date, dateString) => {
     console.log(date, dateString);
-  }
-  const onFinishFailed = (errorInfo) => {
+  }, []);
+
+  const onFinishFailed = React.useCallback((errorInfo) => {
     console.log("Failed:", errorInfo);
-  };
+  }, []);
+
   return (
     <Row justify="center">
       <Col span={14}>
@@ -66,15 +69,12 @@ const FormPayment = () => {
                 <Text> : </Text>
               </Col>
               <Col span={6}>
-                <Input
-                  value={formState.Model.keperluan}
-                  onChange={(e) => {
-                    setFormState({
-                      ...formState,
-                      Model: { ...formState.Model, keperluan: e.target.value },
-                    });
-                  }}
-                />
+                <Select>
+                  <Option value="pembayaranSPP">Pembayaran SPP</Option>
+                  <Option value="pembayaranKartuKredit">Pembayaran Kartu Kredit</Option>
+                  <Option value="pembayarantokenlistrik">Pembayaran token listrik</Option>
+                  <Option value="pembayaranKPR">Pembayaran KPR</Option>
+                </Select>
               </Col>
             </Row>
           </Form.Item>

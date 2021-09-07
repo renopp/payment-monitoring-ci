@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CreatePaymentForm.css";
 
-import {Form, Button, Col, Row, Select, Typography} from "antd";
+import { Form, Button, Col, Row, Select, Typography } from "antd";
 
 import TextArea from "antd/lib/input/TextArea";
 import { useHistory } from "react-router-dom";
@@ -33,30 +33,22 @@ const CreatePaymentForm = () => {
     console.log("Success:", values);
   };
 
-  function onChangeDate(date, dateString) {
-    console.log(date, dateString);
-  }
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
   const [hidden, setHidden] = useState(true);
- const handleOnChange = (value, event) => {
-   console.log(value);
-   if (value == '1'){
-     setHidden(false);
-   }else {
-     setHidden(true);
-   }
-  }
+  const handleOnChange = (value, _) => {
+    console.log(value);
+    if (value === "1") {
+      setHidden(false);
+    } else {
+      setHidden(true);
+    }
+  };
   return (
     <Row justify="center">
       <Col span={12}>
-        <Form
-          name="basic"
-          initialValues={{ remember: true }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-        >
+        <Form name="basic" initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed}>
           <Row justify="left" className="row">
             <Col span={10}>
               <Text>Nama Unit</Text>
@@ -69,7 +61,7 @@ const CreatePaymentForm = () => {
             </Col>
           </Row>
 
-          <Row justify="left" className="row" >
+          <Row justify="left" className="row">
             <Col span={10}>
               <Text>Diminta Oleh</Text>
             </Col>
@@ -81,7 +73,7 @@ const CreatePaymentForm = () => {
             </Col>
           </Row>
 
-          <Row justify="left" className="row" >
+          <Row justify="left" className="row">
             <Col span={10}>
               <Text>Keperluan</Text>
             </Col>
@@ -93,7 +85,7 @@ const CreatePaymentForm = () => {
             </Col>
           </Row>
 
-          <Row justify="left" className="row" >
+          <Row justify="left" className="row">
             <Col span={10}>
               <Text>Tanggal Pembayaran</Text>
             </Col>
@@ -105,7 +97,7 @@ const CreatePaymentForm = () => {
             </Col>
           </Row>
 
-          <Row justify="left" className="row" >
+          <Row justify="left" className="row">
             <Col span={10}>
               <Text>Jumlah Payment</Text>
             </Col>
@@ -117,7 +109,7 @@ const CreatePaymentForm = () => {
             </Col>
           </Row>
 
-          <Row justify="left" className="row" >
+          <Row justify="left" className="row">
             <Col span={10}>
               <Text>Terbilang</Text>
             </Col>
@@ -129,7 +121,7 @@ const CreatePaymentForm = () => {
             </Col>
           </Row>
 
-          <Row justify="left" className="row" >
+          <Row justify="left" className="row">
             <Col span={10}>
               <Text>Nama Rek. Penerima</Text>
             </Col>
@@ -141,7 +133,7 @@ const CreatePaymentForm = () => {
             </Col>
           </Row>
 
-          <Row justify="left" className="row" >
+          <Row justify="left" className="row">
             <Col span={10}>
               <Text>No Rekening Penerima</Text>
             </Col>
@@ -153,7 +145,7 @@ const CreatePaymentForm = () => {
             </Col>
           </Row>
 
-          <Row justify="left" className="row" >
+          <Row justify="left" className="row">
             <Col span={10}>
               <Text>Request Terkirim</Text>
             </Col>
@@ -165,7 +157,7 @@ const CreatePaymentForm = () => {
             </Col>
           </Row>
 
-          <Row justify="left" className="row" >
+          <Row justify="left" className="row">
             <Col span={10}>
               <Text>Status</Text>
             </Col>
@@ -182,7 +174,7 @@ const CreatePaymentForm = () => {
             </Col>
           </Row>
 
-          <Row justify="left" className={hidden ? 'hidden' : 'row'} style={{marginTop: '0'}}>
+          <Row justify="left" className={hidden ? "hidden" : "row"} style={{ marginTop: "0" }}>
             <Col span={10}>
               <Text>Alasan</Text>
             </Col>
@@ -192,15 +184,15 @@ const CreatePaymentForm = () => {
             <Col span={12}>
               <Form.Item>
                 <TextArea
-                    value={formState.Model.alasan}
-                    onChange={(e) => {
-                      setFormState({
-                        ...formState,
-                        Model: { ...formState.Model, alasan: e.target.value },
-                      });
-                    }}
-                    placeholder="Alasan"
-                    autoSize={{ minRows: 2, maxRows: 3 }}
+                  value={formState.Model.alasan}
+                  onChange={(e) => {
+                    setFormState({
+                      ...formState,
+                      Model: { ...formState.Model, alasan: e.target.value },
+                    });
+                  }}
+                  placeholder="Alasan"
+                  autoSize={{ minRows: 2, maxRows: 3 }}
                 />
               </Form.Item>
             </Col>
@@ -214,7 +206,7 @@ const CreatePaymentForm = () => {
                 </Button>
               </Form.Item>
             </Col>
-            <Col  span={3} offset={18}>
+            <Col span={3} offset={18}>
               <Form.Item>
                 <Button htmlType="submit" onClick={navigateTo}>
                   Update

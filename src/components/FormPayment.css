@@ -10,17 +10,8 @@
   color: red;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
-}
-
-h3 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 30px;
+.ant-input {
+  width: 500px !important;
 }
 
 .ant-col-8 {
@@ -33,4 +24,8 @@ h3 {
 
 textarea {
   max-width: none !important;
+}
+
+.ant-select {
+  width: 500px !important;
 }

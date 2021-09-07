@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Beranda from "./pages/Beranda";
-import CreatePayment from "./pages/Create_Payment";
+import BerandaPage from "./pages/BerandaPage";
+import CreatePaymentPage from "./pages/CreatePaymentPage";
 import LoginPage from "./pages/LoginPage";
-import DetailPaymentRequest from "./pages/DetailPaymentRequest";
-import FormPaymentRequest from "./pages/FormPaymentRequest";
+import DetailPaymentRequest from "./pages/DetailPaymentRequestPage";
+import FormPaymentRequest from "./pages/FormPaymentRequestPage";
 
 function App() {
   return (
@@ -28,10 +28,10 @@ const DefaultContainer = () => (
   <>
     <Navbar />
     <Route path="/" exact component={LoginPage} />
-    <Route path="/unitkerja-beranda" component={Beranda} />
+    <Route path="/unitkerja-beranda" component={BerandaPage} />
     <Route path="/unitkerja-paymentrequest" component={FormPaymentRequest} />
     <Route path="/unitkerja-detailpayment" component={DetailPaymentRequest} />
-    <Route path="/gs-paymentrequest" component={CreatePayment} />
+    <Route path="/gs-paymentrequest" component={CreatePaymentPage} />
   </>
 );
 

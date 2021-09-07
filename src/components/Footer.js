@@ -1,7 +1,7 @@
 import React from "react";
 import { Footer } from "antd/lib/layout/layout";
 
-function Footerr() {
+function FooterPage() {
   return (
     <Footer
       style={{
@@ -15,4 +15,4 @@ function Footerr() {
   );
 }
 
-export default Footerr;
+export default FooterPage;
