@@ -1,9 +1,9 @@
 import React from "react";
 import { Layout } from "antd";
 import { Content } from "antd/lib/layout/layout";
-import FormPayment from "../components/FormPayment";
-import Footer from "../components/Footer";
-import "../components/FormPaymentRequestPage.css";
+import FormPayment from "../../components/FormPayment";
+import Footer from "../../components/Footer";
+import "../../components/FormPaymentRequestPage.css";
 
 function UKPaymentRequestPage() {
   return (

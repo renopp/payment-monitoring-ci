@@ -1,20 +1,20 @@
-import React from "react";
-import Footer from "../../components/Footer";
 import { Layout } from "antd";
 import { Content } from "antd/lib/layout/layout";
-import ListPaymentRequest from "../../components/ListPaymentRequest";
+import React from 'react';
+import FooterPage from '../../components/Footer';
+import ListRole from '../../components/ListRole';
 
-const UKBerandaPage = () => {
+function ManagementRolePage() {
   return (
     <>
       <Layout style={{ minHeight: "100vh", backgroundColor: "#fff" }}>
         <Content style={{ marginTop: "50px" }}>
-          <ListPaymentRequest />
+          <ListRole />
         </Content>
-        <Footer />
+        <FooterPage />
       </Layout>
     </>
-  );
-};
+  )
+}
 
-export default UKBerandaPage;
+export default ManagementRolePage

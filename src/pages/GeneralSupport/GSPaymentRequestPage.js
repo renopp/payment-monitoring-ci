@@ -1,8 +1,8 @@
 import React from "react";
-import CreatePaymentForm from "../components/CreatePaymentForm";
+import CreatePaymentForm from "../../components/CreatePaymentForm";
 import { Content } from "antd/lib/layout/layout";
 import { Layout } from "antd";
-import Footerr from "../components/Footer";
+import Footerr from "../../components/Footer";
 
 const GSPaymentRequestPage = () => {
   return (

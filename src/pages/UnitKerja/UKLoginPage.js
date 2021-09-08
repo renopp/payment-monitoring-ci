@@ -1,9 +1,9 @@
 import React from "react";
-import img from "../assets/image_logo2.png";
-import "../components/LoginPage.css";
+import img from "../../assets/image_logo2.png";
+import "../../components/LoginPage.css";
 import "antd/dist/antd.css";
 import { Layout } from "antd";
-import LoginForm from "../components/LoginForm";
+import LoginForm from "../../components/LoginForm";
 
 const UKLoginPage = () => {
   return (

@@ -3,12 +3,13 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import { ADManagementRolePage } from "./pages/Admin";
 import { GSPaymentRequestPage } from "./pages/GeneralSupport";
 import {
   UKBerandaPage,
   UKDetailPaymentPage,
   UKLoginPage,
-  UKPaymentRequestPage,
+  UKPaymentRequestPage
 } from "./pages/UnitKerja";
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
   );
 }
 
-const LoginContainer = () => <Route path="/" component={LoginPage} />;
+const LoginContainer = () => <Route path="/" component={UKLoginPage} />;
 
 const DefaultContainer = () => (
   <>
@@ -34,7 +35,9 @@ const DefaultContainer = () => (
     <Route path="/unitkerja-paymentrequest" component={UKPaymentRequestPage} />
     <Route path="/unitkerja-detailpayment" component={UKDetailPaymentPage} />
     <Route path="/gs-paymentrequest" component={GSPaymentRequestPage} />
+    <Route path="/admin-beranda" component={ADManagementRolePage} />
   </>
 );
+
 
 export default App;
