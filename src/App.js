@@ -24,7 +24,7 @@ function App() {
   );
 }
 
-const LoginContainer = () => <Route path="/" component={LoginPage} />;
+const LoginContainer = () => <Route path="/" component={UKLoginPage} />;
 
 const DefaultContainer = () => (
   <>
