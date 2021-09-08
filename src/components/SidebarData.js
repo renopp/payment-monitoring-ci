@@ -11,11 +11,18 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
+    title: "Admin Role",
+    path: "/admin-beranda",
+    icon: <AiIcons.AiFillHome />,
+    cName: "nav-text",
+  },
+  {
     title: "Buat Payment Request",
     path: "/unitkerja-paymentrequest",
     icon: <IoIcons.IoMdCreate />,
     cName: "nav-text",
   },
+  
   {
     title: "Sign Out",
     path: "/",

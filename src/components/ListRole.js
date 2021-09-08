@@ -1,7 +1,7 @@
-import { Button, Row, Space, Table, Tag } from "antd";
+import { Button, Row, Space, Table } from "antd";
 import React from "react";
-import { useHistory } from "react-router-dom";
-import "./ListPaymentRequest.css";
+import { Link } from "react-router-dom";
+import "./ListRole.css";
 
 const data = [
   {
@@ -15,15 +15,19 @@ const data = [
     key: "2",
     no: "2.",
     name: "Sarifuddin",
-    role: "Generela Support",
+    role: "General Support",
     username: "10002",
+  },
+  {
+    key: "3",
+    no: "3.",
+    name: "Reza Alpidzami",
+    role: "Admin",
+    username: "10003",
   },
 ];
 
 const ListRole = () => {
-  // const history = useHistory();
-  // const navigateTo = React.useCallback(() => history.push("/unitkerja-detailpayment"), [history]);
-  // // table
   const columns = React.useMemo(
     () => [
       {
@@ -45,39 +49,36 @@ const ListRole = () => {
         title: "Username",
         key: "username",
         dataIndex: "username",
-        // render: (action) => (
-        //   <>
-        //     {action.map((act) => {
-        //       let color;
-        //       if (act === "rejected by accounting") {
-        //         color = "volcano";
-        //       } else if (act === "disetujui") {
-        //         color = "green";
-        //       } else if (act === "menunggu konfirmasi") {
-        //         color = "yellow";
-        //       }
-        //       return (
-        //         <Tag color={color} key={act}>
-        //           {act.toUpperCase()}
-        //         </Tag>
-        //       );
-        //     })}
-        //   </>
-        // ),
       },
       {
         // title: 'Button',
         key: "buttonDetail",
         render: (text) => (
-          <Space size="middle">
-            <Button type="primary">
-              Detail
-            </Button>
+          <Space size="small">
+            <Link to="/">lihat</Link>
+          </Space>
+        ),
+      },
+      {
+        // title: 'Button',
+        key: "buttonDetail",
+        render: (text) => (
+          <Space size="small">
+            <Link>Ubah</Link>
+          </Space>
+        ),
+      },
+      {
+        // title: 'Button',
+        key: "buttonDetail",
+        render: (text) => (
+          <Space size="small">
+            <Link>Hapus</Link>
           </Space>
         ),
       },
     ],
-    // [navigateTo]
+
     []
   );
 
@@ -92,7 +93,25 @@ const ListRole = () => {
       }}
     >
       <h1>Role & Account</h1>
-      <Table rowClassName={(_, index) => (index % 2 === 0 ? "table-row-light" : "table-row-dark")} columns={columns} dataSource={data} />
+      <Button
+        style={{
+          width: 720,
+          justifyContent: "flex-end",
+          alignItems: "flex-end",
+          marginBottom: 15,
+          borderRadius: 10,
+          backgroundColor: "orange",
+        }}
+      >
+        Add New Role & Account
+      </Button>
+      <Table
+        rowClassName={(_, index) =>
+          index % 2 === 0 ? "table-row-light" : "table-row-dark"
+        }
+        columns={columns}
+        dataSource={data}
+      />
     </Row>
   );
 };
