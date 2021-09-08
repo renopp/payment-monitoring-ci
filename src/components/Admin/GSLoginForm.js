@@ -1,12 +1,11 @@
+import { Button, Col, Form, Input, Row, Select } from "antd";
 import React from "react";
-import { Select, Form, Input, Button, Col, Row } from "antd";
 import { useHistory } from "react-router-dom";
-import { ImportantDevices } from "@material-ui/icons";
 
-const LoginForm2 = () => {
+const GSLoginForm = () => {
   const { Option } = Select;
   const history = useHistory();
-  const navigateTo = () => history.push("/beranda");
+  const navigateTo = React.useCallback(() => history.push("/admin-beranda"), [history]);
 
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -58,13 +57,14 @@ const LoginForm2 = () => {
         <Form.Item
           label="Password"
           name="password"
-          rules={[{ required: true, message: "Please input your password!" },]}
+          rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password value={password} onChange={handlePasswordChange} 
-          style={{ marginLeft: "0px" }}
+          <Input.Password
+            value={password}
+            onChange={handlePasswordChange}
+            style={{ marginLeft: "0px" }}
           />
         </Form.Item>
-
 
         <Form.Item
           label="Login As"
@@ -93,7 +93,6 @@ const LoginForm2 = () => {
                   alignItems: "center",
                   width: "350px",
                   borderRadius: "10px",
-                  
                 }}
               >
                 Login
@@ -106,4 +105,4 @@ const LoginForm2 = () => {
   );
 };
 
-export default LoginForm2;
+export default GSLoginForm;

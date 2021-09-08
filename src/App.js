@@ -3,13 +3,17 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { ADCreateRolePage, ADManagementRolePage, ADUpdateRolePage } from "./pages/Admin";
-import { GSPaymentRequestPage } from "./pages/GeneralSupport";
+import {
+  ADCreateRolePage,
+  ADManagementRolePage,
+  ADUpdateRolePage,
+} from "./pages/Admin";
+import { GSLoginPage, GSPaymentRequestPage } from "./pages/GeneralSupport";
 import {
   UKBerandaPage,
   UKDetailPaymentPage,
   UKLoginPage,
-  UKPaymentRequestPage
+  UKPaymentRequestPage,
 } from "./pages/UnitKerja";
 
 function App() {
@@ -18,6 +22,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={LoginContainer} />
+          <Route path="/officer-login" component={GSLoginPage} />
           <Route component={DefaultContainer} />
         </Switch>
       </Router>
@@ -40,6 +45,5 @@ const DefaultContainer = () => (
     <Route path="/admin-beranda" component={ADManagementRolePage} />
   </>
 );
-
 
 export default App;

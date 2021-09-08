@@ -1,7 +1,7 @@
 import { Button, Row, Space, Table } from "antd";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import "./LoginForm.css";
+import "../../components/LoginForm.css";
 
 const data = [
   {
