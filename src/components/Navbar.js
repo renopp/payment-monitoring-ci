@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import { SidebarData } from "./SidebarData";
-import "./Navbar.css";
 import { IconContext } from "react-icons";
+import * as AiIcons from "react-icons/ai";
+import * as FaIcons from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Logo from "../assets/image_logo2_white.png";
+import "./Navbar.css";
+import { SidebarData } from "./SidebarData";
 
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);

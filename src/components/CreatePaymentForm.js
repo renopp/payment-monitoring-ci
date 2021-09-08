@@ -1,16 +1,16 @@
+import { Button, Col, Form, Row, Select, Typography } from "antd";
+import TextArea from "antd/lib/input/TextArea";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./CreatePaymentForm.css";
 
-import { Form, Button, Col, Row, Select, Typography } from "antd";
 
-import TextArea from "antd/lib/input/TextArea";
-import { useHistory } from "react-router-dom";
 const { Text } = Typography;
 
 const { Option } = Select;
 const CreatePaymentForm = () => {
   const history = useHistory();
-  const navigateTo = () => history.push("/unitkerja-beranda");
+  const navigateTo = React.useCallback(() => history.push("/unitkerja-beranda"), [history]);
   const Model = {
     nm_unit: "KC BANK XXX",
     diminta_oleh: "Asep Sunandar",

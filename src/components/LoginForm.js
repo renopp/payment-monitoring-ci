@@ -1,5 +1,5 @@
+import { Button, Col, Form, Input, Row, Typography } from "antd";
 import React from "react";
-import { Form, Input, Button, Col, Row, Typography } from "antd";
 import { useHistory } from "react-router-dom";
 import "./LoginForm.css";
 

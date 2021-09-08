@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import "./CreatePaymentForm";
-
-import { Form, Input, Button, Col, Row, DatePicker, Select, Typography } from "antd";
+import { Button, Col, DatePicker, Form, Input, Row, Select, Typography } from "antd";
 import TextArea from "antd/lib/input/TextArea";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./CreatePaymentForm";
 import "./FormPayment.css";
+
 
 const Text = Typography;
 
@@ -23,8 +23,7 @@ const Model = {
 
 const FormPayment = () => {
   const history = useHistory();
-  const navigateTo = () => history.push("/unitkerja-beranda");
-
+  const navigateTo = React.useCallback(() => history.push("/unitkerja-beranda"), [history]);
   const [formState, setFormState] = useState({
     Model,
   });

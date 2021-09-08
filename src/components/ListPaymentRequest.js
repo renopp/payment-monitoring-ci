@@ -1,7 +1,7 @@
+import { Button, Row, Space, Table, Tag } from "antd";
 import React from "react";
-import { Table, Tag, Space, Button, Row } from "antd";
-import "./ListPaymentRequest.css";
 import { useHistory } from "react-router-dom";
+import "./ListPaymentRequest.css";
 
 const data = [
   {
