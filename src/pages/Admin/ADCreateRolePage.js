@@ -2,15 +2,15 @@ import React from "react";
 import { Content } from "antd/lib/layout/layout";
 import { Layout } from "antd";
 import Footer from "../../components/Footer";
-import DetailAccountForm from "../../components/Admin/DetailAccountForm";
+import CreateRoleForm from "../../components/Admin/CreateRoleForm";
 
-const ADDetailAccountFormPage = () => {
+const ADCreateRolePage = () => {
   return (
     <div className="form-detailaccount">
       <Layout style={{ minHeight: "100vh", backgroundColor: "#fff" }}>
         <Content style={{ marginTop: "50px" }}>
-          <h3>Detail Account</h3>
-          <DetailAccountForm />
+          <h3>Create Account</h3>
+          <CreateRoleForm />
         </Content>
         <Footer />
       </Layout>
@@ -18,4 +18,4 @@ const ADDetailAccountFormPage = () => {
   );
 };
 
-export default ADDetailAccountFormPage;
+export default ADCreateRolePage;

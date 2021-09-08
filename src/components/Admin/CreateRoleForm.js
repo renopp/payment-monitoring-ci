@@ -1,20 +1,21 @@
 import React from "react";
-import "./DetailAccount.css";
+import "./CreateRoleForm.css";
 import { Form, Input, Button, Col, Row, Select, Typography } from "antd";
 import { useHistory } from "react-router-dom";
 
-const { Text } = Typography;
-const { Option } = Select;
 
-const DetailAccountUpdate = () => {
-  const history = useHistory();
-  const navigateTo = () => history.push("/role-account-add");
-  const Model = {
-    nama: "Dinda Eka Nurlita",
+const { Option } = Select;
+const { Text } = Typography;
+const Model = {
+    nama: "",
     role: "",
-    username: "10001",
+    username: "",
     password: "",
   };
+
+const CreateRoleForm = () => {
+  const history = useHistory();
+  const navigateTo = () => history.push("/admin-beranda");
 
   const [formState, setFormState] = React.useState({
     Model,
@@ -44,6 +45,7 @@ const DetailAccountUpdate = () => {
             rules={[
               {
                 required: true,
+                message: "Nama tidak boleh kosong!",
               },
             ]}
           >
@@ -52,7 +54,15 @@ const DetailAccountUpdate = () => {
                 <Text> : </Text>
               </Col>
               <Col>
-                <Input value={formState.Model.nama} />
+                <Input
+                  value={formState.Model.nama}
+                  onChange={(event) => {
+                    setFormState({
+                      ...formState,
+                      Model: { ...formState.Model, nama: event.target.value },
+                    });
+                  }}
+                />
               </Col>
             </Row>
           </Form.Item>
@@ -65,7 +75,8 @@ const DetailAccountUpdate = () => {
             rules={[
               {
                 required: true,
-              },
+                message: "Role tidak boleh kosong!",
+              }
             ]}
           >
             <Row>
@@ -89,6 +100,7 @@ const DetailAccountUpdate = () => {
             rules={[
               {
                 required: true,
+                message: "Username tidak boleh kosong!",
               },
             ]}
           >
@@ -97,7 +109,18 @@ const DetailAccountUpdate = () => {
                 <Text> : </Text>
               </Col>
               <Col>
-                <Input value={formState.Model.username} />
+                <Input
+                  value={formState.Model.username}
+                  onChange={(event) => {
+                    setFormState({
+                      ...formState,
+                      Model: {
+                        ...formState.Model,
+                        username: event.target.value,
+                      },
+                    });
+                  }}
+                />
               </Col>
             </Row>
           </Form.Item>
@@ -124,10 +147,13 @@ const DetailAccountUpdate = () => {
                   onChange={(event) => {
                     setFormState({
                       ...formState,
-                      Model: { ...formState.Model, password: event.target.value },
+                      Model: {
+                        ...formState.Model,
+                        password: event.target.value,
+                      },
                     });
-                    }}
-                  style={{margin:0}}
+                  }}
+                  style={{ margin: 0 }}
                 />
               </Col>
             </Row>
@@ -136,7 +162,11 @@ const DetailAccountUpdate = () => {
           <Row id="role-detail">
             <Col span={4}>
               <Form.Item>
-                <Button danger htmlType="submit" onClick={() => {}}>
+                <Button
+                  danger
+                  htmlType="submit"
+                  onClick={navigateTo}
+                >
                   Kembali
                 </Button>
               </Form.Item>
@@ -144,7 +174,7 @@ const DetailAccountUpdate = () => {
             <Col span={4} offset={10}>
               <Form.Item>
                 <Button type="primary" htmlType="submit" onClick={navigateTo}>
-                  Update
+                  Simpan
                 </Button>
               </Form.Item>
             </Col>
@@ -155,4 +185,4 @@ const DetailAccountUpdate = () => {
   );
 };
 
-export default DetailAccountUpdate;
+export default CreateRoleForm;

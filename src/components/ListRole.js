@@ -1,7 +1,7 @@
 import { Button, Row, Space, Table } from "antd";
 import React from "react";
-import { Link } from "react-router-dom";
-import "./ListRole.css";
+import { Link, useHistory } from "react-router-dom";
+import "./LoginForm.css";
 
 const data = [
   {
@@ -22,12 +22,14 @@ const data = [
     key: "3",
     no: "3.",
     name: "Reza Alpidzami",
-    role: "Admin",
+    role: "General Support",
     username: "10003",
   },
 ];
 
 const ListRole = () => {
+  const history = useHistory();
+  const navigateTo = () => history.push("/role-account-add");
   const columns = React.useMemo(
     () => [
       {
@@ -55,7 +57,7 @@ const ListRole = () => {
         key: "buttonDetail",
         render: (text) => (
           <Space size="small">
-            <Link to="/">lihat</Link>
+            <Link >Lihat</Link>
           </Space>
         ),
       },
@@ -64,7 +66,7 @@ const ListRole = () => {
         key: "buttonDetail",
         render: (text) => (
           <Space size="small">
-            <Link>Ubah</Link>
+            <Link to="/role-account-update" >Ubah</Link>
           </Space>
         ),
       },
@@ -102,6 +104,7 @@ const ListRole = () => {
           borderRadius: 10,
           backgroundColor: "orange",
         }}
+        onClick={navigateTo}
       >
         Add New Role & Account
       </Button>

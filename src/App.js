@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { ADManagementRolePage, ADDetailAccountFormPage, ADDetailAccountPage } from "./pages/Admin";
+import { ADCreateRolePage, ADManagementRolePage, ADUpdateRolePage } from "./pages/Admin";
 import { GSPaymentRequestPage } from "./pages/GeneralSupport";
 import {
   UKBerandaPage,
@@ -35,8 +35,8 @@ const DefaultContainer = () => (
     <Route path="/unitkerja-paymentrequest" component={UKPaymentRequestPage} />
     <Route path="/unitkerja-detailpayment" component={UKDetailPaymentPage} />
     <Route path="/gs-paymentrequest" component={GSPaymentRequestPage} />
-    <Route path="/role-account-update" component={ADDetailAccountPage} />
-    <Route path="/role-account-add" component={ADDetailAccountFormPage} />
+    <Route path="/role-account-update" component={ADUpdateRolePage} />
+    <Route path="/role-account-add" component={ADCreateRolePage} />
     <Route path="/admin-beranda" component={ADManagementRolePage} />
   </>
 );

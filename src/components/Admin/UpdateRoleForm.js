@@ -1,21 +1,20 @@
 import React from "react";
-import "./DetailAccountForm.css";
+import "./DetailAccount.css";
 import { Form, Input, Button, Col, Row, Select, Typography } from "antd";
 import { useHistory } from "react-router-dom";
 
-
-const { Option } = Select;
 const { Text } = Typography;
-const Model = {
-    nama: "",
+const { Option } = Select;
+
+const UpdateRoleForm = () => {
+  const history = useHistory();
+  const navigateTo = React.useCallback(() => history.push("/admin-beranda"), [history]);
+  const Model = {
+    nama: "Dinda Eka Nurlita",
     role: "",
-    username: "",
+    username: "10001",
     password: "",
   };
-
-const DetailAccountForm = () => {
-  const history = useHistory();
-  const navigateTo = () => history.push("/role-account-update");
 
   const [formState, setFormState] = React.useState({
     Model,
@@ -45,7 +44,6 @@ const DetailAccountForm = () => {
             rules={[
               {
                 required: true,
-                message: "Nama tidak boleh kosong!",
               },
             ]}
           >
@@ -54,15 +52,7 @@ const DetailAccountForm = () => {
                 <Text> : </Text>
               </Col>
               <Col>
-                <Input
-                  value={formState.Model.nama}
-                  onChange={(event) => {
-                    setFormState({
-                      ...formState,
-                      Model: { ...formState.Model, nama: event.target.value },
-                    });
-                  }}
-                />
+                <Input value={formState.Model.nama} />
               </Col>
             </Row>
           </Form.Item>
@@ -75,8 +65,7 @@ const DetailAccountForm = () => {
             rules={[
               {
                 required: true,
-                message: "Role tidak boleh kosong!",
-              }
+              },
             ]}
           >
             <Row>
@@ -100,7 +89,6 @@ const DetailAccountForm = () => {
             rules={[
               {
                 required: true,
-                message: "Username tidak boleh kosong!",
               },
             ]}
           >
@@ -109,18 +97,7 @@ const DetailAccountForm = () => {
                 <Text> : </Text>
               </Col>
               <Col>
-                <Input
-                  value={formState.Model.username}
-                  onChange={(event) => {
-                    setFormState({
-                      ...formState,
-                      Model: {
-                        ...formState.Model,
-                        username: event.target.value,
-                      },
-                    });
-                  }}
-                />
+                <Input value={formState.Model.username} />
               </Col>
             </Row>
           </Form.Item>
@@ -147,13 +124,10 @@ const DetailAccountForm = () => {
                   onChange={(event) => {
                     setFormState({
                       ...formState,
-                      Model: {
-                        ...formState.Model,
-                        password: event.target.value,
-                      },
+                      Model: { ...formState.Model, password: event.target.value },
                     });
-                  }}
-                  style={{ margin: 0 }}
+                    }}
+                  style={{margin:0}}
                 />
               </Col>
             </Row>
@@ -162,19 +136,15 @@ const DetailAccountForm = () => {
           <Row id="role-detail">
             <Col span={4}>
               <Form.Item>
-                <Button
-                  danger
-                  htmlType="submit"
-                  onClick={navigateTo}
-                >
+                <Button danger htmlType="submit" onClick={() => {}}>
                   Kembali
                 </Button>
               </Form.Item>
             </Col>
             <Col span={4} offset={10}>
               <Form.Item>
-                <Button type="primary" htmlType="submit" onClick={() => {}}>
-                  Simpan
+                <Button type="primary" htmlType="submit" onClick={navigateTo}>
+                  Update
                 </Button>
               </Form.Item>
             </Col>
@@ -185,4 +155,4 @@ const DetailAccountForm = () => {
   );
 };
 
-export default DetailAccountForm;
+export default UpdateRoleForm;

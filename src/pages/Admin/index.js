@@ -1,5 +1,5 @@
 import ADManagementRolePage from './ManagementRolePage';
-import ADDetailAccountFormPage from './ADDetailAccountFormPage';
-import ADDetailAccountPage from './ADDetailAccountPage';
+import ADUpdateRolePage from './ADUpdateRolePage';
+import ADCreateRolePage from './ADCreateRolePage';
 
-export { ADManagementRolePage, ADDetailAccountFormPage, ADDetailAccountPage };
+export { ADManagementRolePage, ADCreateRolePage, ADUpdateRolePage };
