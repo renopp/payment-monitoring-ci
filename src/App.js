@@ -1,13 +1,15 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "antd/dist/antd.css";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import BerandaPage from "./pages/BerandaPage";
-import CreatePaymentPage from "./pages/CreatePaymentPage";
-import LoginPage from "./pages/LoginPage";
-import DetailPaymentRequest from "./pages/DetailPaymentRequestPage";
-import FormPaymentRequest from "./pages/FormPaymentRequestPage";
+import { GSPaymentRequestPage } from "./pages/GeneralSupport";
+import {
+  UKBerandaPage,
+  UKDetailPaymentPage,
+  UKLoginPage,
+  UKPaymentRequestPage,
+} from "./pages/UnitKerja";
 
 function App() {
   return (
@@ -27,11 +29,11 @@ const LoginContainer = () => <Route path="/" component={LoginPage} />;
 const DefaultContainer = () => (
   <>
     <Navbar />
-    <Route path="/" exact component={LoginPage} />
-    <Route path="/unitkerja-beranda" component={BerandaPage} />
-    <Route path="/unitkerja-paymentrequest" component={FormPaymentRequest} />
-    <Route path="/unitkerja-detailpayment" component={DetailPaymentRequest} />
-    <Route path="/gs-paymentrequest" component={CreatePaymentPage} />
+    <Route path="/" exact component={UKLoginPage} />
+    <Route path="/unitkerja-beranda" component={UKBerandaPage} />
+    <Route path="/unitkerja-paymentrequest" component={UKPaymentRequestPage} />
+    <Route path="/unitkerja-detailpayment" component={UKDetailPaymentPage} />
+    <Route path="/gs-paymentrequest" component={GSPaymentRequestPage} />
   </>
 );
 

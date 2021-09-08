@@ -4,7 +4,7 @@ import { Content } from "antd/lib/layout/layout";
 import { Layout } from "antd";
 import Footerr from "../components/Footer";
 
-const CreatePayment = () => {
+const GSPaymentRequestPage = () => {
   return (
     <div className="createpayment">
       <Layout style={{ minHeight: "100vh", backgroundColor: "#fff" }}>
@@ -18,4 +18,4 @@ const CreatePayment = () => {
   );
 };
 
-export default CreatePayment;
+export default GSPaymentRequestPage;

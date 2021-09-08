@@ -5,7 +5,7 @@ import FormPayment from "../components/FormPayment";
 import Footer from "../components/Footer";
 import "../components/FormPaymentRequestPage.css";
 
-function FormPaymentRequest() {
+function UKPaymentRequestPage() {
   return (
     <>
       <Layout style={{ minHeight: "100vh", backgroundColor: "#fff" }}>
@@ -25,4 +25,4 @@ function FormPaymentRequest() {
   );
 }
 
-export default FormPaymentRequest;
+export default UKPaymentRequestPage;

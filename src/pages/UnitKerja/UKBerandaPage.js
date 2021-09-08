@@ -4,7 +4,7 @@ import { Layout } from "antd";
 import { Content } from "antd/lib/layout/layout";
 import ListPaymentRequest from "../components/ListPaymentRequest";
 
-const Beranda = () => {
+const UKBerandaPage = () => {
   return (
     <>
       <Layout style={{ minHeight: "100vh", backgroundColor: "#fff" }}>
@@ -17,4 +17,4 @@ const Beranda = () => {
   );
 };
 
-export default Beranda;
+export default UKBerandaPage;

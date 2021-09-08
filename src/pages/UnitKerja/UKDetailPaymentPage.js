@@ -1,6 +1,6 @@
 import React from "react";
 
-function DetailPaymentRequest() {
+function UKDetailPaymentPage() {
   return (
     <div>
       <p>DetailPaymentRequest</p>
@@ -8,4 +8,4 @@ function DetailPaymentRequest() {
   );
 }
 
-export default DetailPaymentRequest;
+export default UKDetailPaymentPage;

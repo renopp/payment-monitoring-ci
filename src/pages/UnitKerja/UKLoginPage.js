@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 import { Layout } from "antd";
 import LoginForm from "../components/LoginForm";
 
-const LoginPage = () => {
+const UKLoginPage = () => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Layout className="App-header">
@@ -18,4 +18,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default UKLoginPage;
