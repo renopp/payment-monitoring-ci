@@ -70,7 +70,13 @@ const GSLoginForm = () => {
         <Form.Item
           label="Password"
           name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+              type: "password",
+            },
+          ]}
         >
           <Row>
             <Col span={2}>
@@ -111,9 +117,6 @@ const GSLoginForm = () => {
               <Button
                 type="primary"
                 htmlType="submit"
-                // onClick={() => {
-                //   console.log("test value >> ", username, password);
-                // }}
                 onClick={navigateTo}
                 style={{
                   backgroundColor: "#09539C ",
@@ -121,6 +124,7 @@ const GSLoginForm = () => {
                   alignItems: "center",
                   width: "350px",
                   borderRadius: "10px",
+                  marginTop: "10px",
                 }}
               >
                 Login
