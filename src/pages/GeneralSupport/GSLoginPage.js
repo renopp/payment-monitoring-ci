@@ -3,7 +3,6 @@ import "antd/dist/antd.css";
 import React from "react";
 import GSLoginForm from "../../components/Admin/GSLoginForm";
 import img from "../../assets/image_logo2.png";
-import "../../components/Admin/GSLoginForm.css";
 
 const GSLoginPage = () => {
   return (

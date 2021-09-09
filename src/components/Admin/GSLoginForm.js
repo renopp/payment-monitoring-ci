@@ -1,7 +1,6 @@
 import { Button, Col, Form, Input, Row, Select, Typography } from "antd";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import "./GSLoginForm.css";
 
 const Text = Typography;
 
