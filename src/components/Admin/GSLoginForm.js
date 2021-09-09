@@ -1,7 +1,7 @@
 import { Button, Col, Form, Input, Row, Select, Typography } from "antd";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import "../LoginForm.css"
+import "./GSLoginForm.css";
 
 const Text = Typography;
 
@@ -106,7 +106,7 @@ const GSLoginForm = () => {
           </Row>
         </Form.Item>
 
-        <Col span={12} offset={6}>
+        <Col span={12} offset={5}>
           <Row justify="center">
             <Form.Item>
               <Button

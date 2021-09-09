@@ -6,6 +6,10 @@
   width: 100% !important;
 }
 
+.ant-form-item .ant-select {
+  width: 100% !important;
+}
+
 .ant-btn {
   width: 250px !important;
   margin-left: 30px;
