@@ -1,11 +1,17 @@
-import { Button, Col, Form, Input, Row, Select } from "antd";
+import { Button, Col, Form, Input, Row, Select, Typography } from "antd";
 import React from "react";
 import { useHistory } from "react-router-dom";
+import "../LoginForm.css"
+
+const Text = Typography;
 
 const GSLoginForm = () => {
   const { Option } = Select;
   const history = useHistory();
-  const navigateTo = React.useCallback(() => history.push("/admin-beranda"), [history]);
+  const navigateTo = React.useCallback(
+    () => history.push("/admin-beranda"),
+    [history]
+  );
 
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -51,7 +57,14 @@ const GSLoginForm = () => {
             },
           ]}
         >
-          <Input value={username} onChange={handleUsernameChange} />
+          <Row>
+            <Col span={2}>
+              <Text> : </Text>
+            </Col>
+            <Col span={22}>
+              <Input value={username} onChange={handleUsernameChange} />
+            </Col>
+          </Row>
         </Form.Item>
 
         <Form.Item
@@ -59,22 +72,37 @@ const GSLoginForm = () => {
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password
-            value={password}
-            onChange={handlePasswordChange}
-            style={{ marginLeft: "0px" }}
-          />
+          <Row>
+            <Col span={2}>
+              <Text> : </Text>
+            </Col>
+            <Col span={22}>
+              <Input.Password
+                id="input_password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </Col>
+          </Row>
         </Form.Item>
 
         <Form.Item
           label="Login As"
+          name="login as"
           rules={[{ required: true, message: "Please input your Role!" }]}
         >
-          <Select defaultValue="- Login As -">
-            <Option value="accounting">Accounting</Option>
-            <Option value="admin">Admin</Option>
-            <Option value="generalsupport">General Support</Option>
-          </Select>
+          <Row>
+            <Col span={2}>
+              <Text> : </Text>
+            </Col>
+            <Col span={22}>
+              <Select defaultValue="- Login As -">
+                <Option value="accounting">Accounting</Option>
+                <Option value="admin">Admin</Option>
+                <Option value="generalsupport">General Support</Option>
+              </Select>
+            </Col>
+          </Row>
         </Form.Item>
 
         <Col span={12} offset={6}>
