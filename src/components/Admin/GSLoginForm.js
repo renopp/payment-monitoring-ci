@@ -39,6 +39,7 @@ const GSLoginForm = () => {
     <Row justify="center">
       <Form
         name="basic"
+        labelAlign="left"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         initialValues={{ remember: true }}
