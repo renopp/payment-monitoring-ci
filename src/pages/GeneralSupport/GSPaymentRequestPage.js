@@ -2,7 +2,7 @@ import React from "react";
 import CreatePaymentForm from "../../components/CreatePaymentForm";
 import { Content } from "antd/lib/layout/layout";
 import { Layout } from "antd";
-import Footerr from "../../components/Footer";
+import Footer from "../../components/Footer";
 
 const GSPaymentRequestPage = () => {
   return (
@@ -12,7 +12,7 @@ const GSPaymentRequestPage = () => {
           <h3>Form Payment Request</h3>
           <CreatePaymentForm />
         </Content>
-        <Footerr />
+        <Footer />
       </Layout>
     </div>
   );
