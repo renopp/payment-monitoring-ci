@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import { AccountigDetailPaymentPage } from "./pages/Accounting";
 import {
   ADCreateRolePage,
   ADManagementRolePage,
@@ -40,6 +41,7 @@ const DefaultContainer = () => (
     <Route path="/unitkerja-paymentrequest" component={UKPaymentRequestPage} />
     <Route path="/unitkerja-detailpayment" component={UKDetailPaymentPage} />
     <Route path="/gs-paymentrequest" component={GSPaymentRequestPage} />
+    <Route path="/accounting-request" component={AccountigDetailPaymentPage} />
     <Route path="/role-account-update" component={ADUpdateRolePage} />
     <Route path="/role-account-add" component={ADCreateRolePage} />
     <Route path="/admin-beranda" component={ADManagementRolePage} />
