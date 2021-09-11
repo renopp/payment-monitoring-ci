@@ -1,9 +1,10 @@
 import React from "react";
+import DetailPaymentRequest from "../../components/DetailPaymentRequest_UnitKerja";
 
 function UKDetailPaymentPage() {
   return (
     <div>
-      <p>DetailPaymentRequest</p>
+      <DetailPaymentRequest />
     </div>
   );
 }

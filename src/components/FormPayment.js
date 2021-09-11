@@ -2,9 +2,7 @@ import { Button, Col, DatePicker, Form, Input, Row, Select, Typography } from "a
 import TextArea from "antd/lib/input/TextArea";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "./CreatePaymentForm";
 import "./FormPayment.css";
-
 
 const Text = Typography;
 

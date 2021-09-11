@@ -26,6 +26,6 @@ textarea {
   max-width: none !important;
 }
 
-.ant-select {
+.ant-form-item .ant-select {
   width: 500px !important;
 }

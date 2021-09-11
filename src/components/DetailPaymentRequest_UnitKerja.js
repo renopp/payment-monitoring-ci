@@ -1,32 +1,26 @@
-import { Button, Col, Form, Row, Select, Typography } from "antd";
-import TextArea from "antd/lib/input/TextArea";
+import { Button, Col, Form, Row, Typography } from "antd";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "./CreatePaymentForm.css";
+import "./DetailPaymentRequest.css";
 
-const { Text } = Typography;
+const { Text, Title } = Typography;
 
-const { Option } = Select;
-const CreatePaymentForm = () => {
+const DetailPaymentRequest = () => {
   const history = useHistory();
   const navigateTo = React.useCallback(() => history.push("/unitkerja-beranda"), [history]);
   const Model = {
-    nm_unit: "KC BANK XXX",
     diminta_oleh: "Asep Sunandar",
     keperluan: "SPP Juli 2020",
-    tanggal_pembayaran_aktual: "Sabtu, 10 Juli 2021",
+    tanggal_pembayaran: "Sabtu, 11 Juli 2021",
     jumlah_payment: "Rp. 1.000.000",
     terbilang: "Satu Juta Rupiah",
     nama_rek_penerima: "MD. Mubarokul Huda",
     no_rek_penerima: "15000757050",
-    request_terkirim: "Jum'at, 9 Juli 2021 (09.00 PM)",
-    status: "",
-    alasan: "",
+    request_terkirim: "Jum'at, 8 Juli 2021 (09.00 PM)",
+    status_request: "Menunggu konfirmasi General Support",
   };
 
-  const [formState, setFormState] = useState({
-    Model,
-  });
+  const [formState, setFormState] = useState({ Model });
 
   const onFinish = (values) => {
     console.log("Success:", values);
@@ -35,31 +29,13 @@ const CreatePaymentForm = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-  const [hidden, setHidden] = useState(true);
-  const handleOnChange = (value, _) => {
-    console.log(value);
-    if (value === "1") {
-      setHidden(false);
-    } else {
-      setHidden(true);
-    }
-  };
   return (
     <Row justify="center">
       <Col span={12}>
+        <Title level={3} align="center" style={{ marginTop: 40, marginBottom: 50 }}>
+          Detail Payment Request
+        </Title>
         <Form name="basic" initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed}>
-          <Row justify="left" className="row">
-            <Col span={10}>
-              <Text>Nama Unit</Text>
-            </Col>
-            <Col span={2}>
-              <Text>:</Text>
-            </Col>
-            <Col span={12}>
-              <Text>{formState.Model.nm_unit}</Text>
-            </Col>
-          </Row>
-
           <Row justify="left" className="row">
             <Col span={10}>
               <Text>Diminta Oleh</Text>
@@ -92,7 +68,7 @@ const CreatePaymentForm = () => {
               <Text>:</Text>
             </Col>
             <Col span={12}>
-              <Text>{formState.Model.tanggal_pembayaran_aktual}</Text>
+              <Text>{formState.Model.tanggal_pembayaran}</Text>
             </Col>
           </Row>
 
@@ -164,51 +140,14 @@ const CreatePaymentForm = () => {
               <Text>:</Text>
             </Col>
             <Col span={12}>
-              <Form.Item>
-                <Select defaultValue="" onSelect={(value, event) => handleOnChange(value, event)}>
-                  <Option value="0">Teruskan Ke Accounting</Option>
-                  <Option value="1">Reject</Option>
-                </Select>
-              </Form.Item>
+              <Text id="status-payment"> {formState.Model.status_request}</Text>
             </Col>
           </Row>
-
-          <Row justify="left" className={hidden ? "hidden" : "row"} style={{ marginTop: "0" }}>
-            <Col span={10}>
-              <Text>Alasan</Text>
-            </Col>
-            <Col span={2}>
-              <Text>:</Text>
-            </Col>
-            <Col span={12}>
-              <Form.Item>
-                <TextArea
-                  value={formState.Model.alasan}
-                  onChange={(e) => {
-                    setFormState({
-                      ...formState,
-                      Model: { ...formState.Model, alasan: e.target.value },
-                    });
-                  }}
-                  placeholder="Alasan"
-                  autoSize={{ minRows: 2, maxRows: 3 }}
-                />
-              </Form.Item>
-            </Col>
-          </Row>
-
-          <Row>
+          <Row id="button-detail">
             <Col span={3}>
               <Form.Item>
                 <Button danger htmlType="submit" onClick={navigateTo}>
                   Kembali
-                </Button>
-              </Form.Item>
-            </Col>
-            <Col span={3} offset={18}>
-              <Form.Item>
-                <Button htmlType="submit" onClick={navigateTo}>
-                  Update
                 </Button>
               </Form.Item>
             </Col>
@@ -219,4 +158,4 @@ const CreatePaymentForm = () => {
   );
 };
 
-export default CreatePaymentForm;
+export default DetailPaymentRequest;

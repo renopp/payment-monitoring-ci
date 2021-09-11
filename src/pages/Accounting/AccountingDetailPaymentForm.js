@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./AccountingDetailPaymetForm.css";
 
-
 const { Text } = Typography;
 
 const { Option } = Select;
