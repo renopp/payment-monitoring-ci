@@ -1,15 +1,17 @@
 import React from "react";
 import { Content } from "antd/lib/layout/layout";
-import { Layout } from "antd";
+import { Layout, Typography } from "antd";
 import Footer from "../../components/Footer";
 import CreateRoleForm from "../../components/Admin/CreateRoleForm";
+
+const { Title } = Typography;
 
 const ADCreateRolePage = () => {
   return (
     <div className="form-detailaccount">
       <Layout style={{ minHeight: "100vh", backgroundColor: "#fff" }}>
         <Content style={{ marginTop: "50px" }}>
-          <h3>Create Account</h3>
+          <Title level={3}> Create Account </Title>
           <CreateRoleForm />
         </Content>
         <Footer />

@@ -1,5 +1,5 @@
 import React from "react";
-import "./CreateRoleForm.css";
+import "./DetailAccount.css";
 import { Form, Input, Button, Col, Row, Select, Typography } from "antd";
 import { useHistory } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const Model = {
 
 const CreateRoleForm = () => {
   const history = useHistory();
-  const navigateTo = () => history.push("/admin-beranda");
+  const navigateTo = React.useCallback(() => history.push("/admin-beranda"), [history]);
 
   const [formState, setFormState] = React.useState({
     Model,

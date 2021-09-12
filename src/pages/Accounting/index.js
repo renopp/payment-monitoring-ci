@@ -1,3 +1,4 @@
 import AccountigDetailPaymentPage from "./AccountingDetailPaymetPage";
+import AccountingBerandaPage from "./AccountingBerandaPage";
 
-export { AccountigDetailPaymentPage };
+export { AccountigDetailPaymentPage, AccountingBerandaPage };
