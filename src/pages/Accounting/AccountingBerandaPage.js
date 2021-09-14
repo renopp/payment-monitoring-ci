@@ -2,7 +2,6 @@ import React from "react";
 import ListPaymentRequestAccounting from "./AccountingBeranda";
 import { Content } from "antd/lib/layout/layout";
 import { Layout, Typography } from "antd";
-import Footer from "../../components/Footer";
 
 const { Title } = Typography;
 
@@ -14,7 +13,6 @@ const AccountingBerandaPage = () => {
           <Title level={3}> List Payment Request </Title>
           <ListPaymentRequestAccounting />
         </Content>
-        <Footer />
       </Layout>
     </div>
   );

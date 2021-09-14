@@ -19,6 +19,8 @@ import {
   UKLoginPage,
   UKPaymentRequestPage,
 } from "./pages/UnitKerja";
+import AuthorizedRoute from "./AuthorizedRoute";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -49,6 +51,7 @@ const DefaultContainer = () => (
     <Route path="/role-account-update" component={ADUpdateRolePage} />
     <Route path="/role-account-add" component={ADCreateRolePage} />
     <Route path="/admin-beranda" component={ADManagementRolePage} />
+    <Footer />
   </>
 );
 

@@ -2,7 +2,6 @@ import { Layout, Typography } from "antd";
 import { Content } from "antd/lib/layout/layout";
 import React from "react";
 import CreateRoleForm from "../../components/Admin/UpdateRoleForm";
-import Footer from "../../components/Footer";
 
 const { Title } = Typography;
 
@@ -14,7 +13,6 @@ const ADUpdateRolePage = () => {
           <Title level={3}> Update Account </Title>
           <CreateRoleForm />
         </Content>
-        <Footer />
       </Layout>
     </div>
   );

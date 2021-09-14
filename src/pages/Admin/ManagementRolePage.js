@@ -1,7 +1,6 @@
 import { Layout } from "antd";
 import { Content } from "antd/lib/layout/layout";
 import React from 'react';
-import FooterPage from '../../components/Footer';
 import ListRole from '../../components/Admin/ListRole';
 
 function ManagementRolePage() {
@@ -11,7 +10,6 @@ function ManagementRolePage() {
         <Content style={{ marginTop: "50px" }}>
           <ListRole />
         </Content>
-        <FooterPage />
       </Layout>
     </>
   )

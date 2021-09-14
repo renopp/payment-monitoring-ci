@@ -3,7 +3,6 @@ import { Content } from "antd/lib/layout/layout";
 import { Button, Col, Form, Row, Layout, Select, Typography } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { useHistory } from "react-router-dom";
-import Footer from "../../components/Footer";
 import "./AccountingDetailPaymetPage.css";
 
 const { Title, Text } = Typography;
@@ -245,7 +244,6 @@ const AccountigDetailPaymentPage = () => {
           <Title level={3}>Payment Request</Title>
           <AccountigDetailPaymentForm />
         </Content>
-        <Footer />
       </Layout>
     </div>
   );
