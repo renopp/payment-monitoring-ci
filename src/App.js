@@ -28,7 +28,7 @@ function App() {
     <AuthorizedContextProvider>
       <Router>
         <Switch>
-          <Route exact path="/" component={LoginContainer} />
+          <Route path="/unitkerja-login" exact component={LoginContainer} />
           <Route path="/officer-login" component={GSLoginPage} />
           <Route component={DefaultContainer} />
         </Switch>

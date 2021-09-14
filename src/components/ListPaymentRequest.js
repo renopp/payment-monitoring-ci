@@ -36,8 +36,8 @@ const data = [
 ];
 
 const ListPaymentRequest = () => {
-  const { isLoggedId } = useAuthorizedContext()
-  console.log("value >>", isLoggedId)
+  const {isLoggedIn} = useAuthorizedContext()
+  console.log("value >>", isLoggedIn)
   const history = useHistory();
   const navigateTo = React.useCallback(() => history.push("/unitkerja-detailpayment"), [history]);
   // table
