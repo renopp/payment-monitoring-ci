@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { 
   AccountigDetailPaymentPage,
   AccountingBerandaPage,
@@ -20,11 +21,11 @@ import {
   UKPaymentRequestPage,
 } from "./pages/UnitKerja";
 import AuthorizedRoute from "./AuthorizedRoute";
-import Footer from "./components/Footer";
+import { AuthorizedContextProvider } from "./AuthorizedContext";
 
 function App() {
   return (
-    <>
+    <AuthorizedContextProvider>
       <Router>
         <Switch>
           <Route exact path="/" component={LoginContainer} />
@@ -32,7 +33,7 @@ function App() {
           <Route component={DefaultContainer} />
         </Switch>
       </Router>
-    </>
+    </AuthorizedContextProvider>
   );
 }
 
@@ -42,9 +43,9 @@ const DefaultContainer = () => (
   <>
     <Navbar />
     <Route path="/" exact component={UKLoginPage} />
-    <Route path="/unitkerja-beranda" component={UKBerandaPage} />
-    <Route path="/unitkerja-paymentrequest" component={UKPaymentRequestPage} />
-    <Route path="/unitkerja-detailpayment" component={UKDetailPaymentPage} />
+    <AuthorizedRoute path="/unitkerja-beranda" exact component={UKBerandaPage}></AuthorizedRoute>
+    <AuthorizedRoute path="/unitkerja-paymentrequest" exact component={UKPaymentRequestPage}></AuthorizedRoute>
+    <AuthorizedRoute path="/unitkerja-detailpayment" exact component={UKDetailPaymentPage}></AuthorizedRoute>
     <Route path="/gs-paymentrequest" component={GSPaymentRequestPage} />
     <Route path="/accounting-request" component={AccountigDetailPaymentPage} />
     <Route path="/accounting-beranda" component={AccountingBerandaPage} />

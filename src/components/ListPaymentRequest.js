@@ -1,6 +1,7 @@
 import { Button, Row, Space, Table, Tag } from "antd";
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useAuthorizedContext } from "../AuthorizedContext";
 import "./ListPaymentRequest.css";
 
 const data = [
@@ -35,6 +36,8 @@ const data = [
 ];
 
 const ListPaymentRequest = () => {
+  const { isLoggedId } = useAuthorizedContext()
+  console.log("value >>", isLoggedId)
   const history = useHistory();
   const navigateTo = React.useCallback(() => history.push("/unitkerja-detailpayment"), [history]);
   // table
