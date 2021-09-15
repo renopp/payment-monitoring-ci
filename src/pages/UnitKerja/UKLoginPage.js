@@ -1,15 +1,17 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Button, Col, Form, Input, Row, Typography } from "antd";
+import { Button, Col, Form, Input, Result, Row, Typography } from "antd";
 import img from "../../assets/image_logo2.png";
 import { Layout } from "antd";
 import "antd/dist/antd.css";
 import "../../components/LoginPage.css";
 import { useAuthorizedContext } from "../../AuthorizedContext";
+import useLogin from '../../Mutations/useLogin';
 
 const Text = Typography;
 
 const LoginForm = () => {
+  
   const history = useHistory();
   const { isLoggedIn, userLevel, setAuthorizedValue } = useAuthorizedContext();
 
@@ -20,6 +22,7 @@ const LoginForm = () => {
 
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const { mutate: login } = useLogin({username, password}, (result) => console.log("result >>", result), (error) => console.log("error >>", error))
 
   const onFinish = React.useCallback((values) => {
     console.log("Success:", values);
@@ -101,7 +104,8 @@ const LoginForm = () => {
               <Button
                 type="primary"
                 htmlType="submit"
-                onClick={handleSignInButton}
+                // onClick={handleSignInButton}
+                onClick={login}
                 style={{
                   backgroundColor: "#09539C ",
                   justifyContent: "center",

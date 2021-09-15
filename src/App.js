@@ -30,27 +30,30 @@ import {
 import AuthorizedRoute from "./AuthorizedRoute";
 import RestrictedWrapper from "./RestrictedWrapper";
 import { AuthorizedContextProvider } from "./AuthorizedContext";
+import { CookiesProvider } from "react-cookie";
 
 // Create a client
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <AuthorizedContextProvider>
-        <Router>
-          <Switch>
-            <Route path="/unitkerja-login" exact>
-              <RestrictedWrapper>
-                <LoginContainer />
-              </RestrictedWrapper>
-            </Route>
-            <Route path="/officer-login" component={GSLoginPage} />
-            <Route component={DefaultContainer} />
-          </Switch>
-        </Router>
-      </AuthorizedContextProvider>
-    </QueryClientProvider>
+    <CookiesProvider>
+      <QueryClientProvider client={queryClient}>
+        <AuthorizedContextProvider>
+          <Router>
+            <Switch>
+              <Route path="/unitkerja-login" exact>
+                <RestrictedWrapper>
+                  <LoginContainer />
+                </RestrictedWrapper>
+              </Route>
+              <Route path="/officer-login" component={GSLoginPage} />
+              <Route component={DefaultContainer} />
+            </Switch>
+          </Router>
+        </AuthorizedContextProvider>
+      </QueryClientProvider>
+    </CookiesProvider>
   );
 }
 

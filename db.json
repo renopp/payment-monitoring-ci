@@ -1,4 +1,28 @@
 {
+  "users": [
+    {
+      "email": "kams@gmail.com",
+      "password": "$2a$10$YfOYReTDLQP7TqTNDjuzpewtICvh00sMRY6f2llMJYpyAKAOrlNRG",
+      "id_unit": 1,
+      "id": 1
+    }
+  ],
+  "loginUnitKerja": [
+    {
+      "id": "asdas",
+      "id_unit": "1",
+      "nama_unit": "admin",
+      "username": "admin",
+      "password": "admin"
+    },
+    {
+      "username": "kams",
+      "password": "kams",
+      "nama_unit": "unitkerja",
+      "id_unit": "1",
+      "id": "GSFE3ZZ"
+    }
+  ],
   "paymentRequest": [
     {
       "tgl_request": "Wed Sep 15 2021 19:27:22 GMT+0700 (Western Indonesia Time)",
