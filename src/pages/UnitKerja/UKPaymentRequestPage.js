@@ -2,7 +2,6 @@ import React from "react";
 import { Layout } from "antd";
 import { Content } from "antd/lib/layout/layout";
 import FormPayment from "../../components/FormPayment";
-import Footer from "../../components/Footer";
 import "../../components/FormPaymentRequestPage.css";
 
 function UKPaymentRequestPage() {
@@ -19,7 +18,6 @@ function UKPaymentRequestPage() {
           </h3>
           <FormPayment />
         </Content>
-        <Footer />
       </Layout>
     </>
   );

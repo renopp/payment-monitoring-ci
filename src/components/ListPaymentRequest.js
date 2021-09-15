@@ -1,62 +1,53 @@
-import { Button, Row, Space, Table, Tag } from "antd";
+import { Button, Row, Space, Table, Tag, Typography, Alert, Col } from "antd";
 import React from "react";
+import moment from "moment";
+import { useQuery } from "react-query";
 import { useHistory } from "react-router-dom";
-import { useAuthorizedContext } from "../AuthorizedContext";
 import "./ListPaymentRequest.css";
 
-const data = [
-  {
-    key: "1",
-    no: "1.",
-    tgl_request: "08 Juli 2021 10.00 WIB",
-    tgl_pembayaran: "11 Juli 2021",
-    action: ["menunggu konfirmasi"],
-  },
-  {
-    key: "2",
-    no: "2.",
-    tgl_request: "09 Juli 2021 11.00 WIB",
-    tgl_pembayaran: "12 Juli 2021",
-    action: ["disetujui"],
-  },
-  {
-    key: "3",
-    no: "3.",
-    tgl_request: "10 Juli 2021 12.00 WIB",
-    tgl_pembayaran: "14 Juli 2021",
-    action: ["rejected by accounting"],
-  },
-  {
-    key: "4",
-    no: "4.",
-    tgl_request: "11 Juli 2021 13.00 WIB",
-    tgl_pembayaran: "18 Juli 2021",
-    action: ["disetujui"],
-  },
-];
+const { Text, Title } = Typography;
 
 const ListPaymentRequest = () => {
-  const {isLoggedIn} = useAuthorizedContext()
-  console.log("value >>", isLoggedIn)
+  // Queries
+  const { isLoading, isError, data, refetch } = useQuery("todos", async () => {
+    const response = await fetch("http://localhost:5000/paymentRequest");
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  });
+
   const history = useHistory();
-  const navigateTo = React.useCallback(() => history.push("/unitkerja-detailpayment"), [history]);
+  const navigateTo = React.useCallback(
+    () => history.push("/unitkerja-detailpayment"),
+    [history]
+  );
   // table
   const columns = React.useMemo(
     () => [
       {
         title: "No",
-        dataIndex: "no",
-        key: "no",
+        render: (_, __, index) => <Text>{index + 1}</Text>,
       },
       {
         title: "Tanggal Request",
         dataIndex: "tgl_request",
         key: "tgl_request",
+        render: (value) => {
+          const formateDate = moment(new Date(value)).format(
+            "DD MMMM YYYY HH:mm"
+          );
+          return <Text>{formateDate} WIB</Text>;
+        },
       },
       {
         title: "Tanggal Pembayaran",
         dataIndex: "tgl_pembayaran",
         key: "tgl_pembayaran",
+        render: (value) => {
+          const formateDate = moment(new Date(value)).format("DD MMMM YYYY");
+          return <Text>{formateDate}</Text>;
+        },
       },
       {
         title: "Action",
@@ -107,8 +98,31 @@ const ListPaymentRequest = () => {
         alignItems: "center",
       }}
     >
-      <h1>List Payment Request - KC Bank XXX</h1>
-      <Table rowClassName={(_, index) => (index % 2 === 0 ? "table-row-light" : "table-row-dark")} columns={columns} dataSource={data} />
+      <Space direction="vertical">
+        <h1>List Payment Request - KC Bank XXX</h1>
+        {isError && (
+          <Alert
+            message="Gagal memuat data"
+            showIcon
+            type="error"
+            action={
+              <Col span={4}>
+                <Button size="small" denger onClick={refetch}>
+                  Muat ulang
+                </Button>
+              </Col>
+            }
+          />
+        )}
+        <Table
+          loading={isLoading}
+          rowClassName={(_, index) =>
+            index % 2 === 0 ? "table-row-light" : "table-row-dark"
+          }
+          columns={columns}
+          dataSource={data}
+        ></Table>
+      </Space>
     </Row>
   );
 };
