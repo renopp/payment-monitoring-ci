@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import { useHistory } from "react-router-dom";
 import "./ListPaymentRequest.css";
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 const ListPaymentRequest = () => {
   // Queries

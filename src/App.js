@@ -33,7 +33,14 @@ import { AuthorizedContextProvider } from "./AuthorizedContext";
 import { CookiesProvider } from "react-cookie";
 
 // Create a client
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    }
+  }
+});
+
 
 function App() {
   return (
