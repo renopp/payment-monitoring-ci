@@ -13,14 +13,14 @@ const useLogin = (loginData, onSuccess, onError) => {
           "Content-Type": "application/json",
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(loginData), // body data type must match "Content-Type" header
+        body: JSON.stringify({email: loginData.username, password: loginData.password}), // body data type must match "Content-Type" header
       });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
       const result = await response.json();
 
-      cookies.set('myCat', result.accessToken, { path: '/'});
+      cookies.set('accessToken', result.accessToken, { path: '/'});
       
       return response.json();
       
