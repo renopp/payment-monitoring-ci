@@ -38,6 +38,7 @@ const LoginForm = () => {
   const handleUsernameChange = React.useCallback((e) => {
     setUsername(e.target.value);
   }, []);
+
   const handlePasswordChange = React.useCallback((e) => {
     setPassword(e.target.value);
   }, []);
@@ -61,7 +62,6 @@ const LoginForm = () => {
             {
               required: true,
               message: "Please input your username!",
-              type: "text",
             },
           ]}
         >
@@ -82,7 +82,6 @@ const LoginForm = () => {
             {
               required: true,
               message: "Please input your password!",
-              type: "password",
             },
           ]}
           style={{ marginTop: "15px" }}
@@ -103,8 +102,8 @@ const LoginForm = () => {
               <Button
                 type="primary"
                 htmlType="submit"
-                // onClick={handleSignInButton}
                 onClick={handleSignInButton}
+                // onClick={login}
                 style={{
                   backgroundColor: "#09539C ",
                   justifyContent: "center",
