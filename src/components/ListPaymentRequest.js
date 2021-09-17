@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import { useHistory } from "react-router-dom";
 import "./ListPaymentRequest.css";
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 const ListPaymentRequest = () => {
   // Queries
@@ -18,10 +18,7 @@ const ListPaymentRequest = () => {
   });
 
   const history = useHistory();
-  const navigateTo = React.useCallback(
-    () => history.push("/unitkerja-detailpayment"),
-    [history]
-  );
+  const navigateTo = React.useCallback(() => history.push("/unitkerja-detailpayment"), [history]);
   // table
   const columns = React.useMemo(
     () => [
@@ -34,9 +31,7 @@ const ListPaymentRequest = () => {
         dataIndex: "tgl_request",
         key: "tgl_request",
         render: (value) => {
-          const formateDate = moment(new Date(value)).format(
-            "DD MMMM YYYY HH:mm"
-          );
+          const formateDate = moment(new Date(value)).format("DD MMMM YYYY HH:mm");
           return <Text>{formateDate} WIB</Text>;
         },
       },
@@ -114,14 +109,7 @@ const ListPaymentRequest = () => {
             }
           />
         )}
-        <Table
-          loading={isLoading}
-          rowClassName={(_, index) =>
-            index % 2 === 0 ? "table-row-light" : "table-row-dark"
-          }
-          columns={columns}
-          dataSource={data}
-        ></Table>
+        <Table loading={isLoading} rowClassName={(_, index) => (index % 2 === 0 ? "table-row-light" : "table-row-dark")} columns={columns} dataSource={data}></Table>
       </Space>
     </Row>
   );

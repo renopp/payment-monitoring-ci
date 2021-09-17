@@ -4,7 +4,6 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 const useLogin = (loginData, onSuccess, onError) => {
-
   const { mutate, data, isLoading, isError } = useMutation(
     async () => {
       const response = await fetch(`http://localhost:5000/login`, {
@@ -20,10 +19,9 @@ const useLogin = (loginData, onSuccess, onError) => {
       }
       const result = await response.json();
 
-      cookies.set('myCat', result.accessToken, { path: '/'});
-      
+      cookies.set("myCat", result.accessToken, { path: "/" });
+
       return response.json();
-      
     },
     { onError, onSuccess }
   );

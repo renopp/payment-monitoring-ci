@@ -1,13 +1,4 @@
-import {
-  Button,
-  Col,
-  DatePicker,
-  Form,
-  Input,
-  Row,
-  Select,
-  Typography,
-} from "antd";
+import { Button, Col, DatePicker, Form, Input, InputNumber, Row, Select, Typography } from "antd";
 import moment from "moment";
 import TextArea from "antd/lib/input/TextArea";
 import { useMutation } from "react-query";
@@ -54,11 +45,26 @@ const FormPayment = () => {
     Model,
   });
 
+  function onChange(value) {
+    console.log(`selected ${value}`);
+  }
+
+  function onFocus() {
+    console.log("focus");
+  }
+
   const handleSubmitForm = React.useCallback(() => {
     mutation.mutate({
+      diminta_oleh: formState.Model.diminta_oleh,
+      keperluan: formState.Model.keperluan,
+      jumlah_payment: formState.Model.jumlah_payment,
+      terbilang: formState.Model.terbilang,
+      nama_rek_penerima: formState.Model.nama_rek_penerima,
+      no_rek_penerima: formState.Model.no_rek_penerima,
       tgl_request: new Date().toString(),
       tgl_pembayaran: formState.Model.tanggal_pembayaran_aktual,
-      action: ["rejected by accounting"],
+      status_request: "",
+      action: ["menunggu konfirmasi"],
     });
   }, [formState, mutation]);
 
@@ -68,9 +74,7 @@ const FormPayment = () => {
 
   const onChangeDate = React.useCallback(
     (_, dateString) => {
-      const formateDate = moment(new Date(dateString)).format(
-        "DD-MMM-YYYY hh:mm"
-      );
+      const formateDate = moment(new Date(dateString)).format("DD-MMM-YYYY hh:mm");
       console.log(formateDate + "WIB");
       setFormState({
         ...formState,
@@ -90,21 +94,8 @@ const FormPayment = () => {
   return (
     <Row justify="center">
       <Col span={14}>
-        <Form
-          name="basic"
-          initialValues={{ remember: true }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-        >
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Diminta Oleh"
-            name="diminta_oleh"
-            rules={[
-              { required: true, message: "Diminta Oleh tidak boleh kosong!" },
-            ]}
-          >
+        <Form name="basic" initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed}>
+          <Form.Item labelAlign="left" labelCol={{ span: 8 }} label="Diminta Oleh" name="diminta_oleh" rules={[{ required: true, message: "Diminta Oleh tidak boleh kosong!" }]}>
             <Row>
               <Col span={2}>
                 <Text> : </Text>
@@ -125,28 +116,16 @@ const FormPayment = () => {
               </Col>
             </Row>
           </Form.Item>
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Keperluan Payment"
-            name="keperluan_payment"
-            rules={[
-              { required: true, message: "Keperluan tidak boleh kosong!" },
-            ]}
-          >
+          <Form.Item labelAlign="left" labelCol={{ span: 8 }} label="Keperluan Payment" name="keperluan_payment" rules={[{ required: true, message: "Keperluan tidak boleh kosong!" }]}>
             <Row>
               <Col span={2}>
                 <Text> : </Text>
               </Col>
               <Col span={6}>
-                <Select>
+                <Select onChange={onChange} onFocus={onFocus}>
                   <Option value="pembayaranSPP">Pembayaran SPP</Option>
-                  <Option value="pembayaranKartuKredit">
-                    Pembayaran Kartu Kredit
-                  </Option>
-                  <Option value="pembayarantokenlistrik">
-                    Pembayaran token listrik
-                  </Option>
+                  <Option value="pembayaranKartuKredit">Pembayaran Kartu Kredit</Option>
+                  <Option value="pembayarantokenlistrik">Pembayaran token listrik</Option>
                   <Option value="pembayaranKPR">Pembayaran KPR</Option>
                 </Select>
               </Col>
@@ -170,28 +149,11 @@ const FormPayment = () => {
                 <Text> : </Text>
               </Col>
               <Col span={6}>
-                <DatePicker
-                  showTime={{ format: "HH:mm" }}
-                  format="YYYY-MM-DD HH:mm"
-                  onChange={onChangeDate}
-                  style={{ width: 300 }}
-                  // value={moment(
-                  //   new Date(formState.Model.tanggal_pembayaran_aktual)
-                  // )}
-                  placeholder="Pilih Tanggal Pembayaran"
-                />
+                <DatePicker showTime={{ format: "HH:mm" }} format="YYYY-MM-DD HH:mm" onChange={onChangeDate} style={{ width: 300 }} />
               </Col>
             </Row>
           </Form.Item>
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Jumlah Payment"
-            name="jumlah_payment"
-            rules={[
-              { required: true, message: "Jumlah Payment tidak boleh kosong!" },
-            ]}
-          >
+          <Form.Item labelAlign="left" labelCol={{ span: 8 }} label="Jumlah Payment" name="jumlah_payment" rules={[{ required: true, message: "Jumlah Payment tidak boleh kosong!" }]}>
             <Row>
               <Col span={2}>
                 <Text> : </Text>
@@ -215,15 +177,7 @@ const FormPayment = () => {
               </Col>
             </Row>
           </Form.Item>
-          <Form.Item
-            labelAlign="left"
-            labelCol={{ span: 8 }}
-            label="Terbilang"
-            name="terbilang"
-            rules={[
-              { required: true, message: "Terbilang tidak boleh kosong!" },
-            ]}
-          >
+          <Form.Item labelAlign="left" labelCol={{ span: 8 }} label="Terbilang" name="terbilang" rules={[{ required: true, message: "Terbilang tidak boleh kosong!" }]}>
             <Row>
               <Col span={2}>
                 <Text> : </Text>
@@ -311,12 +265,7 @@ const FormPayment = () => {
           <Row>
             <Col span={4} offset={16}>
               <Form.Item>
-                <Button
-                  style={{ marginLeft: "50px" }}
-                  type="primary"
-                  htmlType="submit"
-                  onClick={handleSubmitForm}
-                >
+                <Button style={{ marginLeft: "50px" }} type="primary" htmlType="submit" onClick={handleSubmitForm}>
                   Submit Payment Request
                 </Button>
               </Form.Item>

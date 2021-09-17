@@ -2,10 +2,21 @@ import { Button, Col, Form, Row, Typography } from "antd";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./DetailPaymentRequest.css";
+import { useQuery } from "react-query";
 
 const { Text, Title } = Typography;
 
 const DetailPaymentRequest = () => {
+  const { isLoading, isError, data } = useQuery("todos", async () => {
+    const response = await fetch("http://localhost:5000/paymentRequest");
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  });
+
+  console.log("value >>", isLoading, isError, data);
+
   const history = useHistory();
   const navigateTo = React.useCallback(() => history.push("/unitkerja-beranda"), [history]);
   const Model = {

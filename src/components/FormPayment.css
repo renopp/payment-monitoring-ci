@@ -29,3 +29,6 @@ textarea {
 .ant-form-item .ant-select {
   width: 500px !important;
 }
+
+.ant-input-number-handler-wrap span {
+}

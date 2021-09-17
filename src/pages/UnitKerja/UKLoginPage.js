@@ -6,12 +6,11 @@ import { Layout } from "antd";
 import "antd/dist/antd.css";
 import "../../components/LoginPage.css";
 import { useAuthorizedContext } from "../../AuthorizedContext";
-import useLogin from '../../Mutations/useLogin';
+import useLogin from "../../Mutations/useLogin";
 
 const Text = Typography;
 
 const LoginForm = () => {
-  
   const history = useHistory();
   const { isLoggedIn, userLevel, setAuthorizedValue } = useAuthorizedContext();
 
@@ -22,7 +21,11 @@ const LoginForm = () => {
 
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const { mutate: login } = useLogin({username, password}, (result) => console.log("result >>", result), (error) => console.log("error >>", error))
+  const { mutate: login } = useLogin(
+    { username, password },
+    (result) => console.log("result >>", result),
+    (error) => console.log("error >>", error)
+  );
 
   const onFinish = React.useCallback((values) => {
     console.log("Success:", values);
@@ -89,11 +92,7 @@ const LoginForm = () => {
               <Text> : </Text>
             </Col>
             <Col span={22}>
-              <Input.Password
-                id="input_password"
-                value={password}
-                onChange={handlePasswordChange}
-              />
+              <Input.Password id="input_password" value={password} onChange={handlePasswordChange} />
             </Col>
           </Row>
         </Form.Item>
@@ -105,7 +104,7 @@ const LoginForm = () => {
                 type="primary"
                 htmlType="submit"
                 // onClick={handleSignInButton}
-                onClick={login}
+                onClick={handleSignInButton}
                 style={{
                   backgroundColor: "#09539C ",
                   justifyContent: "center",

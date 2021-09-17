@@ -25,36 +25,30 @@
   ],
   "paymentRequest": [
     {
-      "tgl_request": "Wed Sep 15 2021 19:27:22 GMT+0700 (Western Indonesia Time)",
+      "diminta_oleh": "Asep Sunandar",
+      "keperluan": "SPP Juli 2020",
       "tgl_pembayaran": "2021-09-20 19:27",
-      "action": [
-        "menunggu konfirmasi"
-      ],
+      "jumlah_payment": "Rp. 1.000.000",
+      "terbilang": "Satu Juta Rupiah",
+      "nama_rek_penerima": "MD, Mubarokul Huda",
+      "no_rek_penerima": "15000757050",
+      "tgl_request": "Wed Sep 15 2021 19:27:22 GMT+0700 (Western Indonesia Time)",
+      "status_request": "Menunggu Konfirmasi General Support",
+      "action": ["menunggu konfirmasi"],
       "id": "EpcUXbU"
     },
     {
-      "tgl_request": "Wed Sep 15 2021 19:33:32 GMT+0700 (Western Indonesia Time)",
-      "tgl_pembayaran": "2021-09-01 21:33",
-      "action": [
-        "menunggu konfirmasi"
-      ],
+      "diminta_oleh": "Asep Sunandar",
+      "keperluan": "SPP Juli 2020",
+      "tgl_pembayaran": "2021-09-20 19:27",
+      "jumlah_payment": "Rp. 1.000.000",
+      "terbilang": "Satu Juta Rupiah",
+      "nama_rek_penerima": "MD, Mubarokul Huda",
+      "no_rek_penerima": "15000757050",
+      "tgl_request": "Wed Sep 15 2021 19:27:22 GMT+0700 (Western Indonesia Time)",
+      "status_request": "Menunggu Konfirmasi General Support",
+      "action": ["menunggu konfirmasi"],
       "id": "W-dGCKx"
-    },
-    {
-      "tgl_request": "Wed Sep 15 2021 19:34:48 GMT+0700 (Western Indonesia Time)",
-      "tgl_pembayaran": "2021-09-03 19:34",
-      "action": [
-        "disetujui"
-      ],
-      "id": "10jU8qs"
-    },
-    {
-      "tgl_request": "Wed Sep 15 2021 19:35:43 GMT+0700 (Western Indonesia Time)",
-      "tgl_pembayaran": "2021-02-09 08:35",
-      "action": [
-        "rejected by accounting"
-      ],
-      "id": "oc9xWih"
     }
   ]
 }
