@@ -5,7 +5,6 @@ import {
   Col,
   Form,
   Input,
-  Result,
   Row,
   Typography,
   Alert,
@@ -22,7 +21,7 @@ const Text = Typography;
 
 const LoginForm = () => {
   const history = useHistory();
-  const { isLoggedIn, userLevel, setAuthorizedValue } = useAuthorizedContext();
+  const { setAuthorizedValue } = useAuthorizedContext();
 
   // const handleSignInButton = React.useCallback(() => {
   //   setAuthorizedValue(true);

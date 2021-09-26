@@ -1,5 +1,5 @@
 import { Button, Col, Form, Row, Typography, Spin } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import "./DetailPaymentRequest.css";
 import { useQuery } from "react-query";
