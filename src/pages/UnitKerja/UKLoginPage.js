@@ -146,7 +146,7 @@ const LoginForm = () => {
                     marginTop: "50px",
                   }}
                 >
-                  Login
+                  Masuk
                 </Button>
               </Form.Item>
             )}
