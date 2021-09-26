@@ -4,6 +4,7 @@
 describe("Positive Test User Login Case", () => {
   it("User visit login page!", () => {
     cy.visit('http://localhost:3000/')
+    cy.wait(5000)
   });
   it('User should see form login', () => {
     cy.get('[ data-qa-id="input-username" ]').should('have.length',1)
