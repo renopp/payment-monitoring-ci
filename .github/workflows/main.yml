@@ -75,3 +75,5 @@ jobs:
           github-token: ${{ secrets.GH_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}  #Required
           vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
+          if: github.ref == 'refs/heads/master'
+          vercel-args: '--prod'
