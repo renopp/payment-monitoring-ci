@@ -1,6 +1,16 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Button, Col, Form, Input, Result, Row, Typography } from "antd";
+import {
+  Button,
+  Col,
+  Form,
+  Input,
+  Result,
+  Row,
+  Typography,
+  Alert,
+  Spin,
+} from "antd";
 import img from "../../assets/image_logo2.png";
 import { Layout } from "antd";
 import "antd/dist/antd.css";
@@ -14,16 +24,23 @@ const LoginForm = () => {
   const history = useHistory();
   const { isLoggedIn, userLevel, setAuthorizedValue } = useAuthorizedContext();
 
-  const handleSignInButton = React.useCallback(() => {
-    setAuthorizedValue(true);
-    history.push("/unitkerja-beranda");
-  }, [setAuthorizedValue, history]);
+  // const handleSignInButton = React.useCallback(() => {
+  //   setAuthorizedValue(true);
+  //   history.push("/unitkerja-beranda");
+  // }, [setAuthorizedValue, history]);
 
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const { mutate: login } = useLogin(
+  const {
+    mutate: login,
+    isError,
+    isLoading,
+  } = useLogin(
     { username, password },
-    (result) => console.log("result >>", result),
+    (result) => {
+      setAuthorizedValue(true);
+      history.push("/unitkerja-beranda");
+    },
     (error) => console.log("error >>", error)
   );
 
@@ -56,6 +73,7 @@ const LoginForm = () => {
         style={{ marginTop: "40px", paddingRight: "40px", paddingLeft: "40px" }}
       >
         <Form.Item
+          data-qa-id="input-username"
           label="Username"
           name="username"
           rules={[
@@ -91,31 +109,48 @@ const LoginForm = () => {
               <Text> : </Text>
             </Col>
             <Col span={22}>
-              <Input.Password id="input_password" value={password} onChange={handlePasswordChange} />
+              <Input.Password
+                data-qa-id="input-password"
+                id="input_password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
             </Col>
           </Row>
         </Form.Item>
 
         <Col span={12} offset={5}>
           <Row justify="center">
-            <Form.Item>
-              <Button
-                type="primary"
-                htmlType="submit"
-                onClick={handleSignInButton}
-                // onClick={login}
-                style={{
-                  backgroundColor: "#09539C ",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "350px",
-                  borderRadius: "10px",
-                  marginTop: "50px",
-                }}
-              >
-                Login
-              </Button>
-            </Form.Item>
+            {isError && (
+              <Alert
+                data-qa-id="error-login-message"
+                message="Username atau password salah"
+                type="error"
+                showIcon
+              />
+            )}
+            {isLoading ? (
+              <Spin tip="Loading..." />
+            ) : (
+              <Form.Item>
+                <Button
+                  data-qa-id="btn-login"
+                  type="primary"
+                  htmlType="submit"
+                  onClick={login}
+                  style={{
+                    backgroundColor: "#09539C ",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "350px",
+                    borderRadius: "10px",
+                    marginTop: "50px",
+                  }}
+                >
+                  Login
+                </Button>
+              </Form.Item>
+            )}
           </Row>
         </Col>
       </Form>

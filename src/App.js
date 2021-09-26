@@ -80,7 +80,7 @@ const DefaultContainer = () => (
       component={UKPaymentRequestPage}
     ></AuthorizedRoute>
     <AuthorizedRoute
-      path="/unitkerja-detailpayment"
+      path="/unitkerja-detailpayment/:id"
       exact
       component={UKDetailPaymentPage}
     ></AuthorizedRoute>

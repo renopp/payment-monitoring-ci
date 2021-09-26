@@ -1,4 +1,4 @@
-import { Button, Row, Space, Table, Tag, Typography, Alert, Col } from "antd";
+import { Button, Row, Space, Table, Tag, Typography, Alert, Col, Spin } from "antd";
 import React from "react";
 import moment from "moment";
 import { useQuery } from "react-query";
@@ -10,7 +10,7 @@ const { Text } = Typography;
 const ListPaymentRequest = () => {
   // Queries
   const { isLoading, isError, data, refetch } = useQuery("todos", async () => {
-    const response = await fetch("http://localhost:5000/paymentRequest");
+    const response = await fetch("https://sleepy-lake-27809.herokuapp.com/paymentRequest");
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -18,7 +18,10 @@ const ListPaymentRequest = () => {
   });
 
   const history = useHistory();
-  const navigateTo = React.useCallback(() => history.push("/unitkerja-detailpayment"), [history]);
+  const navigateTo = React.useCallback(
+    (id) => history.push(`/unitkerja-detailpayment/${id}`),
+    [history]
+  );
   // table
   const columns = React.useMemo(
     () => [
@@ -31,7 +34,9 @@ const ListPaymentRequest = () => {
         dataIndex: "tgl_request",
         key: "tgl_request",
         render: (value) => {
-          const formateDate = moment(new Date(value)).format("DD MMMM YYYY HH:mm");
+          const formateDate = moment(new Date(value)).format(
+            "DD MMMM YYYY HH:mm"
+          );
           return <Text>{formateDate} WIB</Text>;
         },
       },
@@ -69,19 +74,33 @@ const ListPaymentRequest = () => {
         ),
       },
       {
-        // title: 'Button',
-        key: "buttonDetail",
-        render: (text) => (
-          <Space size="middle">
-            <Button type="primary" onClick={navigateTo}>
-              Detail
-            </Button>
-          </Space>
-        ),
+        title: "",
+        render: (data) => {
+          return (
+            <Space size="middle">
+              <Button
+                type="primary"
+                onClick={() => {
+                  navigateTo(data.id);
+                }}
+              >
+                Detail
+              </Button>
+            </Space>
+          );
+        },
       },
     ],
     [navigateTo]
   );
+
+  if (isLoading) {
+    return (
+      <Row justify="center">
+        <Spin tip="Loading..." />
+      </Row>
+    );
+  }
 
   return (
     <Row
@@ -109,7 +128,14 @@ const ListPaymentRequest = () => {
             }
           />
         )}
-        <Table loading={isLoading} rowClassName={(_, index) => (index % 2 === 0 ? "table-row-light" : "table-row-dark")} columns={columns} dataSource={data}></Table>
+        <Table
+          loading={isLoading}
+          rowClassName={(_, index) =>
+            index % 2 === 0 ? "table-row-light" : "table-row-dark"
+          }
+          columns={columns}
+          dataSource={data}
+        ></Table>
       </Space>
     </Row>
   );

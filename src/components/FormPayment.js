@@ -25,7 +25,7 @@ const FormPayment = () => {
   const history = useHistory();
   const mutation = useMutation(
     (formData) => {
-      return fetch("http://localhost:5000/paymentRequest", {
+      return fetch("https://sleepy-lake-27809.herokuapp.com/paymentRequest", {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         headers: {
           "Content-Type": "application/json",
